@@ -1,0 +1,170 @@
+# vis release 1.3 (compiled 2-Oct-98 at 7:31 AM)
+# network name: rotate
+# generated: Mon Oct  5 23:48:35 1998
+#
+# name        type            mddId vals levs
+amount<0>    primary-input      100    2 (100)
+amount<1>    primary-input      105    2 (105)
+amount<2>    primary-input      114    2 (114)
+amount<3>    primary-input      131    2 (131)
+amount<4>    primary-input      164    2 (164)
+dout<9>      latch                0    2 (0)
+dout<9>$NS   shadow               1    2 (1)
+dout<8>      latch                2    2 (2)
+dout<8>$NS   shadow               3    2 (3)
+dout<7>      latch                4    2 (4)
+dout<7>$NS   shadow               5    2 (5)
+dout<6>      latch                6    2 (6)
+dout<6>$NS   shadow               7    2 (7)
+dout<5>      latch                8    2 (8)
+dout<5>$NS   shadow               9    2 (9)
+dout<4>      latch               10    2 (10)
+dout<4>$NS   shadow              11    2 (11)
+dout<3>      latch               12    2 (12)
+dout<3>$NS   shadow              13    2 (13)
+dout<31>     latch               14    2 (14)
+dout<31>$NS  shadow              15    2 (15)
+dout<30>     latch               16    2 (16)
+dout<30>$NS  shadow              17    2 (17)
+dout<2>      latch               18    2 (18)
+dout<2>$NS   shadow              19    2 (19)
+dout<29>     latch               20    2 (20)
+dout<29>$NS  shadow              21    2 (21)
+dout<28>     latch               22    2 (22)
+dout<28>$NS  shadow              23    2 (23)
+dout<27>     latch               24    2 (24)
+dout<27>$NS  shadow              25    2 (25)
+dout<26>     latch               26    2 (26)
+dout<26>$NS  shadow              27    2 (27)
+dout<25>     latch               28    2 (28)
+dout<25>$NS  shadow              29    2 (29)
+dout<24>     latch               30    2 (30)
+dout<24>$NS  shadow              31    2 (31)
+dout<23>     latch               32    2 (32)
+dout<23>$NS  shadow              33    2 (33)
+dout<22>     latch               34    2 (34)
+dout<22>$NS  shadow              35    2 (35)
+dout<21>     latch               36    2 (36)
+dout<21>$NS  shadow              37    2 (37)
+dout<20>     latch               38    2 (38)
+dout<20>$NS  shadow              39    2 (39)
+dout<1>      latch               40    2 (40)
+dout<1>$NS   shadow              41    2 (41)
+dout<19>     latch               42    2 (42)
+dout<19>$NS  shadow              43    2 (43)
+dout<18>     latch               44    2 (44)
+dout<18>$NS  shadow              45    2 (45)
+dout<17>     latch               46    2 (46)
+dout<17>$NS  shadow              47    2 (47)
+dout<16>     latch               48    2 (48)
+dout<16>$NS  shadow              49    2 (49)
+dout<15>     latch               50    2 (50)
+dout<15>$NS  shadow              51    2 (51)
+dout<14>     latch               52    2 (52)
+dout<14>$NS  shadow              53    2 (53)
+dout<13>     latch               54    2 (54)
+dout<13>$NS  shadow              55    2 (55)
+dout<12>     latch               56    2 (56)
+dout<12>$NS  shadow              57    2 (57)
+dout<11>     latch               58    2 (58)
+dout<11>$NS  shadow              59    2 (59)
+dout<10>     latch               60    2 (60)
+dout<10>$NS  shadow              61    2 (61)
+dout<0>      latch               62    2 (62)
+dout<0>$NS   shadow              63    2 (63)
+inr<0>       latch               96    2 (96)
+inr<0>$NS    shadow              97    2 (97)
+din<0>
+inr<1>       latch               98    2 (98)
+inr<1>$NS    shadow              99    2 (99)
+din<1>
+inr<2>       latch              101    2 (101)
+inr<2>$NS    shadow             102    2 (102)
+din<2>
+inr<3>       latch              103    2 (103)
+inr<3>$NS    shadow             104    2 (104)
+din<3>
+inr<4>       latch              106    2 (106)
+inr<4>$NS    shadow             107    2 (107)
+din<4>
+inr<5>       latch              108    2 (108)
+inr<5>$NS    shadow             109    2 (109)
+din<5>
+inr<6>       latch              110    2 (110)
+inr<6>$NS    shadow             111    2 (111)
+din<6>
+inr<7>       latch              112    2 (112)
+inr<7>$NS    shadow             113    2 (113)
+din<7>
+inr<12>      latch              115    2 (115)
+inr<12>$NS   shadow             116    2 (116)
+din<12>
+inr<13>      latch              117    2 (117)
+inr<13>$NS   shadow             118    2 (118)
+din<13>
+inr<14>      latch              119    2 (119)
+inr<14>$NS   shadow             120    2 (120)
+din<14>
+inr<15>      latch              121    2 (121)
+inr<15>$NS   shadow             122    2 (122)
+din<15>
+inr<10>      latch              123    2 (123)
+inr<10>$NS   shadow             124    2 (124)
+din<10>
+inr<11>      latch              125    2 (125)
+inr<11>$NS   shadow             126    2 (126)
+din<11>
+inr<8>       latch              127    2 (127)
+inr<8>$NS    shadow             128    2 (128)
+din<8>
+inr<9>       latch              129    2 (129)
+inr<9>$NS    shadow             130    2 (130)
+din<9>
+inr<16>      latch              132    2 (132)
+inr<16>$NS   shadow             133    2 (133)
+din<16>       primary-input       64    2 (64)
+inr<17>      latch              134    2 (134)
+inr<17>$NS   shadow             135    2 (135)
+din<17>
+inr<18>      latch              136    2 (136)
+inr<18>$NS   shadow             137    2 (137)
+din<18>
+inr<19>      latch              138    2 (138)
+inr<19>$NS   shadow             139    2 (139)
+din<19>
+inr<20>      latch              140    2 (140)
+inr<20>$NS   shadow             141    2 (141)
+din<20>
+inr<21>      latch              142    2 (142)
+inr<21>$NS   shadow             143    2 (143)
+din<21>
+inr<22>      latch              144    2 (144)
+inr<22>$NS   shadow             145    2 (145)
+din<22>
+inr<23>      latch              146    2 (146)
+inr<23>$NS   shadow             147    2 (147)
+din<23>
+inr<24>      latch              148    2 (148)
+inr<24>$NS   shadow             149    2 (149)
+din<24>
+inr<25>      latch              150    2 (150)
+inr<25>$NS   shadow             151    2 (151)
+din<25>
+inr<26>      latch              152    2 (152)
+inr<26>$NS   shadow             153    2 (153)
+din<26>
+inr<27>      latch              154    2 (154)
+inr<27>$NS   shadow             155    2 (155)
+din<27>
+inr<28>      latch              156    2 (156)
+inr<28>$NS   shadow             157    2 (157)
+din<28>
+inr<29>      latch              158    2 (158)
+inr<29>$NS   shadow             159    2 (159)
+din<29>
+inr<30>      latch              160    2 (160)
+inr<30>$NS   shadow             161    2 (161)
+din<30>
+inr<31>      latch              162    2 (162)
+inr<31>$NS   shadow             163    2 (163)
+din<31>
