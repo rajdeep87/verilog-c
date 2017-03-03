@@ -1,3 +1,12 @@
+// Example of "bureaucrat" request/acknowledgement protocol.
+// When a request is received, a timer is started and no action is taken
+// until the timer signals that some time has elapsed.
+// Because of the timer, this system is intrinsically hard to model check.
+// The solution is the abstraction of the counter.
+//
+// Author: Fabio Somenzi <Fabio@Colorado.EDU>
+
+// This environment module generates nondeterministic requests.
 module main(clock);
     input clock;
     reg	  req;
@@ -8,15 +17,17 @@ module main(clock);
 	req = 0;
     end
 
-    assign nd = $ND(0,1);
+    assign nd = 1; //$ND(0,1);
 
-    always @ (posedge clock)
+ always @ (posedge clock)
 	req = nd;
     
-    reqAck ra(clock,req,ack);
-
+  reqAck ra(clock,req,ack);
+  
+  assert property (req==1 |-> ##[1:10] ack==1);
 endmodule // main
 
+// This module 
 module reqAck(clock,req,ack);
     input	    clock;
     input	    req;
@@ -33,7 +44,7 @@ module reqAck(clock,req,ack);
     wire	    ready;
 
     initial begin
-	state = 0;
+	state = idle;
     end
 
     always @ (posedge clock) begin
@@ -67,34 +78,30 @@ module reqAck(clock,req,ack);
     assign start = state == starting;
 
 
-    slaveND slv(clock,start,ready);
+    slave slv(clock,start,ready);
 
 endmodule // reqAck
 
 
-module slaveND(clock,start,ready);
+// This module is a timer.
+module slave(clock,start,ready);
     input     clock;
     input     start;
     output    ready;
 
-    reg [1:0] count;
-    wire      nd;
+    reg [9:0] count;
 
     initial begin
 	count = 0;
     end
 
-    assign nd = $ND(0,1);
-
     always @ (posedge clock) begin
 	if (start)
 	    count = 0;
-	else if (count == 0)
-	    count = count + nd;
 	else
 	    count = count + 1;
     end // always @ (posedge clock)
 
-    assign ready = count == 2'b11;
+    assign ready = count == 10'b0000000111; //10'b1111111111;
 
-endmodule // slaveND
+endmodule // slave

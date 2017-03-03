@@ -49,11 +49,11 @@ module main(clock,ir0,ir1,ack0,ack1);
     end
 
   // Mutual exclusion.
-  /*assert property1: (ack0==0 || ack1==0);
+  assert property1: (ack0==0 || ack1==0);
   assert property (req0==0 && req1==0 |-> ##1 (ack0==0 && ack1==0));
   assert property (req0==1 && req1==0 |-> ##1 ack0==1);
   assert property (req0==0 && req1==1 |-> ##1 ack1==1);
   assert property (req0==1 && ack1==1 |-> ##1 ack0==1);
   assert property (req1==1 && ack0==1 |-> ##1 ack1==1);
-  */
+  
 endmodule // rrobin

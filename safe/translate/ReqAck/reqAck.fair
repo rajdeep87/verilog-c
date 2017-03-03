@@ -1,1 +1,0 @@
-!((ra.slv.count<0> = 0) * (ra.slv.count<1> = 0));

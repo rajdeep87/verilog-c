@@ -1,3 +1,0 @@
-#PASS: every request is eventually acknowledged.
-
-G(req=1 -> F ack=1);
