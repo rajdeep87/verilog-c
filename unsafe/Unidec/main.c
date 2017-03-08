@@ -146,7 +146,7 @@ int main()
     unidec(clk, sel1, sel2, &found);
 
     //#PASS: The trap state lives up to its name.
-    assert((smain.word!=0) || (smain.word==0));
+    //assert((smain.word!=0) || (smain.word==0));
 
     // FAIL
     assert(found==1); 
