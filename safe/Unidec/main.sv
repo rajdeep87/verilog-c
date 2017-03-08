@@ -67,7 +67,7 @@
 
 // Author: Fabio Somenzi <Fabio@Colorado.EDU>
 
-module unidec(clk, sel1, sel2, found);
+module main(clk, sel1, sel2, found);
     input 	clk;
     input [2:0] sel1;
     input [1:0] sel2;
@@ -82,7 +82,7 @@ module unidec(clk, sel1, sel2, found);
     // (a: 000, b: 001, c: 010, d: 011, and e: 100).  Each word is up to
     // five characters plus a "stop" bit.  Characters are stored in a word
     // in reverse order so that a right shift produces a suffix.
-    function [15:0] code;
+  function [15:0] code;
 	input [2:0] sel;
 	begin: _code
 	    case (sel)
@@ -97,11 +97,11 @@ module unidec(clk, sel1, sel2, found);
 	    endcase
 	end
     endfunction // code
-
+   
     // This function extracts a proper prefix of lengh sel+1 from word.
     // If word does not have more than sel+1 characters, it returns
     // an invalid word.
-    function [15:0] prefix;
+  function [15:0] prefix;
 	input [15:0] word;
 	input [1:0] sel;
 	begin: _prefix
@@ -117,10 +117,10 @@ module unidec(clk, sel1, sel2, found);
 	    endcase
 	end
     endfunction // prefix
-
+  
     // This function returns a suffix of word dropping the first sel+1
     // characters.
-    function [15:0] suffix;
+  function [15:0] suffix;
 	input [15:0] word;
 	input [1:0] sel;
 	begin: _suffix
@@ -132,9 +132,9 @@ module unidec(clk, sel1, sel2, found);
 	    endcase
 	end
     endfunction // suffix
+  
 
-
-    initial begin
+ initial begin
 	word = code(sel1);
 	found = 0;
 	init = 1;
@@ -159,4 +159,11 @@ module unidec(clk, sel1, sel2, found);
 	end
     end
 
+   //#PASS: The trap state lives up to its name.
+  assert property ((word[15:0]!=0) || (word[15:0]==0));
+
+  //#PASS: Eventually the trap is inevitable.
+  assert property (true |-> ##[0:$] word[15:0]==0);
+ 
+  assert property (found==0); 
 endmodule // unidec
