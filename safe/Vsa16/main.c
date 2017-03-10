@@ -167,13 +167,13 @@ void alu16(
   *PC = sa.PC;
 
   // #PASS: The program counter is always aligned on a half-word boundary.
-  assert((sa.PC&0x1)==0 && (sa.NPC&0x1)==0);
+  //assert((sa.PC&0x1)==0 && (sa.NPC&0x1)==0);
 
   // #PASS: Register R0 is never written.
   assert(sa.Registers[0]==0);
 
   // #PASS: The state is between 0 and 4.
-  assert((((sa.State>>2)&0x1)==0) || ((sa.State&0x3)==0));
+  //assert((((sa.State>>2)&0x1)==0) || ((sa.State&0x3)==0));
 }
 
 int main()
@@ -188,5 +188,9 @@ int main()
 
   initial_alu16();
   //while(1) 
-    alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
+  alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
+  alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
+  alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
+  alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
+  alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
 }
