@@ -1,0 +1,39 @@
+********************************
+Printing ACDL Solver Statistics
+********************************
+Decisions:: 0
+Learning Iterations:: 0
+Learnt clauses:: 0
+Learnt literals:: 0
+Propagation::2063
+[alu16.assertion.1] assertion sa.Registers[0]==0: OK
+[alu16.assertion.2] assertion sa.Registers[0]==0: OK
+[alu16.assertion.3] assertion sa.Registers[0]==0: OK
+[alu16.assertion.4] assertion sa.Registers[0]==0: OK
+[alu16.assertion.5] assertion sa.Registers[0]==0: OK
+
+** 0 of 6 unknown
+** 0 of 6 failed
+VERIFICATION SUCCESSFUL
+
+real    443m43.605s
+user    434m48.634s
+sys     7m9.132s
+
+CBMC with SAT Solver statistics
+===============================
+Solving with MiniSAT 2.2.1 with simplifier
+8356 variables, 22881 clauses
+SAT checker: instance is UNSATISFIABLE
+restarts              : 1
+conflicts             : 38          
+decisions             : 200         (0.00 % random)
+propagations          : 2390        
+conflict literals     : 172         8.99
+Runtime decision procedure: 0.04s
+
+** Results:
+[alu16.assertion.1] assertion sa.Registers[0]==0: SUCCESS
+
+** 0 of 1 failed (1 iteration)
+VERIFICATION SUCCESSFUL
