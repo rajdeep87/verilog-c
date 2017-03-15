@@ -1,0 +1,2 @@
+Verilog design fails at bound=5. The design is safe up to a bound of 4.
+C design fails at bound=3. The design is safe up to a bound of 2.

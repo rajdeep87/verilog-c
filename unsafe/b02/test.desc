@@ -1,6 +1,6 @@
 CORE
 main.c
---unwind 6
+--unwind 3
 ^EXIT=10$
 ^SIGNAL=0$
 ^VERIFICATION FAILED$
