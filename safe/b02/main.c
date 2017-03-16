@@ -92,12 +92,12 @@ void main()
       b02(clock,LINEA,&U);
       assert(smain.stato==B);
     }
-    if(smain.U==1) {
+    /*if(smain.U==1) {
       b02(clock,LINEA,&U);
       assert(smain.U==0);
     }
     if(smain.U==1) {
       assert(smain.stato==B);
-    }
+    }*/
   }
 }
