@@ -92,7 +92,7 @@ void main() {
  dekker(&smain,clock, select, pause);
  // Mutual exclusion property, both the processes can not be in the critical
  // section at the same time
- //assert(!(smain.pc[0] == L5 && smain.pc[1] == L5));
+ assert((smain.pc[0] == L5 && smain.pc[1] == L5));
  // fair scheduling
- assert((smain.self == 1 && smain.self == 0));
+ //assert((smain.self == 1 || smain.self == 0));
 }
