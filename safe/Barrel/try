@@ -1,0 +1,29 @@
+
+  unsigned char b0_old=sb.b0;
+  unsigned char b1_old=sb.b1;
+  unsigned char b2_old=sb.b2;
+  unsigned char b3_old=sb.b3;
+
+  // always block
+  sb.b0 = b1_old;
+  sb.b1 = b2_old;
+  sb.b2 = b3_old;
+  sb.b3 = b0_old;
+
+  assert
+    (((sb.b0&0x3 != sb.r0&0x3) || (sb.b1&0x3 == sb.r1&0x3)) &&
+     ((sb.b0&0x3 != sb.r1&0x3) || ( sb.b1&0x3 == sb.r2&0x3)) &&
+     ((sb.b0&0x3 != sb.r2&0x3) || ( sb.b1&0x3 == sb.r3&0x3)) &&
+     ((sb.b0&0x3 != sb.r3&0x3) || ( sb.b1&0x3 == sb.r0&0x3)) &&
+     ((sb.b1&0x3 != sb.r0&0x3) || ( sb.b2&0x3 == sb.r1&0x3)) &&
+     ((sb.b1&0x3 != sb.r1&0x3) || ( sb.b2&0x3 == sb.r2&0x3)) &&
+     ((sb.b1&0x3 != sb.r2&0x3) || ( sb.b2&0x3 == sb.r3&0x3)) &&
+     ((sb.b1&0x3 != sb.r3&0x3) || ( sb.b2&0x3 == sb.r0&0x3)) &&
+     ((sb.b2&0x3 != sb.r0&0x3) || ( sb.b3&0x3 == sb.r1&0x3)) &&
+     ((sb.b2&0x3 != sb.r1&0x3) || ( sb.b3&0x3 == sb.r2&0x3)) &&
+     ((sb.b2&0x3 != sb.r2&0x3) || ( sb.b3&0x3 == sb.r3&0x3)) &&
+     ((sb.b2&0x3 != sb.r3&0x3) || ( sb.b3&0x3 == sb.r0&0x3)) &&
+     ((sb.b3&0x3 != sb.r0&0x3) || ( sb.b0&0x3 == sb.r1&0x3)) &&
+     ((sb.b3&0x3 != sb.r1&0x3) || ( sb.b0&0x3 == sb.r2&0x3)) &&
+     ((sb.b3&0x3 != sb.r2&0x3) || ( sb.b0&0x3 == sb.r3&0x3)) &&
+     ((sb.b3&0x3 != sb.r3&0x3) || ( sb.b0&0x3 == sb.r0&0x3)));
