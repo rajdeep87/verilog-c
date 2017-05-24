@@ -155,4 +155,5 @@ void main()
 
     __ASTREE_assert((!(ackA == 1 && ackB == 1 || ackB == 1 && ackC == 1 || ackC == 1 && ackA ==1)));
   
+  }
 }
