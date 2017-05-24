@@ -1,4 +1,5 @@
-#include <stdio.h>
+typedef enum {false=0, true=1} _Bool;
+
 #define TRUE 1
 #define FALSE 0
 
@@ -139,7 +140,7 @@ void main()
   controller_initial();
   arbiter_initial();
   
-  //while(1) {
+  while(1) {
     client(clk, &reqA, ackA);
     client(clk, &reqB, ackB);
     client(clk, &reqC, ackC);
@@ -152,6 +153,6 @@ void main()
 
     active = pass_tokenA || pass_tokenB || pass_tokenC;
 
-    assert(!(ackA == 1 && ackB == 1 || ackB == 1 && ackC == 1 || ackC == 1 && ackA ==1));
-  //}
+    __ASTREE_assert((!(ackA == 1 && ackB == 1 || ackB == 1 && ackC == 1 || ackC == 1 && ackA ==1)));
+  
 }
