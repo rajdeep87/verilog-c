@@ -1,4 +1,4 @@
-typedef enum {false=0, true=1} _Bool;
+#include <assert.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -34,7 +34,7 @@ void controller_initial()
 void controller(_Bool clk, _Bool req, _Bool *ack, unsigned char sel, _Bool *pass_token, unsigned char id)
 {
   _Bool is_selected;
-  is_selected = (sel&0x3 == id&0x3);
+  is_selected = ((sel&0x3) == (id&0x3));
   
   // clocked block
   if(scontroller.state == IDLE) {
@@ -127,9 +127,9 @@ void client(_Bool clk, _Bool *req, _Bool ack)
   *req = sclient.req;
 }
 
-void main()
+int main()
 {
-  _Bool clk, ackA, ackB, ackC;
+  _Bool clk=0, ackA, ackB, ackC;
   unsigned char sel;
   _Bool active;
   _Bool reqA, reqB, reqC;
@@ -153,7 +153,8 @@ void main()
 
     active = pass_tokenA || pass_tokenB || pass_tokenC;
 
-    __ASTREE_assert((!(ackA == 1 && ackB == 1 || ackB == 1 && ackC == 1 || ackC == 1 && ackA ==1)));
+    assert(!((ackA == 1 && ackB == 1) || (ackB == 1 && ackC == 1) || (ackC == 1 && ackA ==1)));
   
   }
+ return 0;
 }

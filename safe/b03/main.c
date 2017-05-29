@@ -1,7 +1,4 @@
-#include <stdio.h>
 #include <assert.h>
-#define TRUE 1
-#define FALSE 0
 
 int U1=0;
 int U2=1;
@@ -124,16 +121,23 @@ void b03(
   *GRANT_O = smain.GRANT_O;
 }
 
-void main()
+int main()
 {
-  _Bool    clock;
+  _Bool    clock=0;
   _Bool 	 REQUEST1, REQUEST2, REQUEST3, REQUEST4;
   unsigned char GRANT_O;
   initial();
+  _Bool    MY_NONDET_VAL;
+  __ASTREE_volatile_input((MY_NONDET_VAL));
   while(1) {
+    REQUEST1=MY_NONDET_VAL;
+    REQUEST2=MY_NONDET_VAL;
+    REQUEST3=MY_NONDET_VAL;
+    REQUEST4=MY_NONDET_VAL;
     b03(clock,REQUEST1, REQUEST2, REQUEST3, REQUEST4, &GRANT_O);
     assert(GRANT_O==0 || GRANT_O==8 || GRANT_O==4 || GRANT_O==2 || GRANT_O==1);
   }
+  return 0;
 }
 
 

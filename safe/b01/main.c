@@ -1,7 +1,4 @@
-#include <stdio.h>
 #include <assert.h>
-#define TRUE 1
-#define FALSE 0
 
 int a=0;
 int b=1;
@@ -108,13 +105,17 @@ void b01(
   *OVERFLW=smain.OVERFLW;
 }
  
-void main()
+int main()
 {
   _Bool  LINE1; _Bool LINE2;
   _Bool OUTP; _Bool OVERFLW; 
-  _Bool  clock;
+  _Bool  clock=0;
+  _Bool    MY_NONDET_VAL;
+  __ASTREE_volatile_input((MY_NONDET_VAL));
  initial();
  while(1) {
+   LINE1=MY_NONDET_VAL;
+   LINE2=MY_NONDET_VAL;
    b01(LINE1,LINE2,&OUTP,&OVERFLW,clock);
    if(smain.OVERFLW==1) {
      b01(LINE1,LINE2,&OUTP,&OVERFLW,clock);
@@ -122,6 +123,7 @@ void main()
      assert(smain.OVERFLW==0);
    }
  }
+ return 0;
 }
 
 

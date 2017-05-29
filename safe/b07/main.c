@@ -1,7 +1,4 @@
-#include <stdio.h>
 #include <assert.h>
-
-_Bool nondet_bool();
 
 int S_RESET = 0;
 int S_START = 1;
@@ -13,7 +10,7 @@ int S_INCREMENTA = 6;
 
 struct state_elements_b07 {
     unsigned char 	 PUNTI_RETTA;
-    _Bool    stato;
+    unsigned int   stato;
     unsigned char 	 cont, x;
     unsigned char 	 y, t;
     unsigned char 	 mar;
@@ -63,11 +60,11 @@ void b07(
 
   // clocked block
    switch (sb.stato) {
-     case S_RESET: {
+     case 0: {
                      sb.stato = S_START;
                      break;
                    }
-     case S_START: {
+     case 1: {
                      if (START) {
                        sb.cont = 0;
                        sb.mar = 0;
@@ -78,29 +75,29 @@ void b07(
                      }
                      break;
                    }
-     case S_LOAD_X: {
+     case 2: {
                       sb.x = mem_mar;
                       sb.stato = S_UPDATE_MAR;
                       break;
                     }
-     case S_UPDATE_MAR: {
+     case 3: {
                           sb.mar = sb.mar + 1;
                           sb.t = (((sb.x&0x3F)<<1) | 0)&0x7F;
                           sb.stato = S_LOAD_Y;
                           break;
                         }
-     case S_LOAD_Y: {
+     case 4: {
                       sb.y = mem_mar&0x7F;
                       sb.x =  (((0<<7) | (sb.x&0x7F))&0xFF) + (((0<<7) | (sb.t&0x7F))&0xFF);  
                       sb.stato = S_CALC_RETTA;
                       break;
                     }
-S_CALC_RETTA: {
+     case 5: {
                 sb.x = (((0<<7) | (sb.x&0x7F))&0xFF) + (((0<<7) | (sb.t&0x7F))&0xFF);  
                 sb.stato = S_INCREMENTA;
                 break;
               }
-S_INCREMENTA: {
+ case 6: {
                 if (sb.mar != 15) {
                   if (sb.x == 2)
                     sb.cont = sb.cont + 1;
@@ -123,15 +120,18 @@ S_INCREMENTA: {
    *PUNTI_RETTA = sb.PUNTI_RETTA;
 }
 
-void main()
+int main()
 {
     unsigned char PUNTI_RETTA;
     _Bool 	 START;
-    _Bool 	 clock;
+    _Bool 	 clock=0;
+    _Bool    MY_NONDET_VAL;
+    __ASTREE_volatile_input((MY_NONDET_VAL));
     initial();
     while(1) { 
-      START=nondet_bool();
+      START=MY_NONDET_VAL;
       b07(&PUNTI_RETTA, START, clock);
       assert ((sb.x&0xFF)!=148);
     }
+    return 0;
 }

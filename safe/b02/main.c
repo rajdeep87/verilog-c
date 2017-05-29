@@ -1,8 +1,4 @@
-#include <stdio.h>
 #include <assert.h>
-#define TRUE 1
-#define FALSE 0
-_Bool nondet_bool();
 
 int A=0;
 int B=1;
@@ -77,27 +73,24 @@ void b02(
   *U=smain.U;
 }
 
-void main()
+int main()
 {
-  _Bool LINEA=nondet_bool();
-  _Bool U=nondet_bool; 
-  _Bool  clock;
+  _Bool LINEA;
+  _Bool U; 
+  _Bool  clock=0;
   initial();
   assert(smain.stato==A);
+  _Bool    MY_NONDET_VAL;
+  __ASTREE_volatile_input((MY_NONDET_VAL));
 
   while(1) {
+    LINEA=MY_NONDET_VAL;
     b02(clock,LINEA,&U);
     if(smain.stato==D) {
       b02(clock,LINEA,&U);
       b02(clock,LINEA,&U);
       assert(smain.stato==B);
     }
-    /*if(smain.U==1) {
-      b02(clock,LINEA,&U);
-      assert(smain.U==0);
-    }
-    if(smain.U==1) {
-      assert(smain.stato==B);
-    }*/
   }
+  return 0;
 }

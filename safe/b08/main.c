@@ -1,8 +1,4 @@
-#include <stdio.h>
 #include <assert.h>
-
-_Bool nondet_bool();
-unsigned char nondet_char();
 
 int start_st = 0;
 int init = 1;
@@ -11,7 +7,7 @@ int the_end = 3;
 
 struct state_elements_b08 {
     unsigned char 	 O;
-    _Bool    STATO;
+    unsigned int    STATO;
     unsigned char 	 IN_R;
     unsigned char 	 MAR;
     unsigned char 	 OUT_R;
@@ -55,18 +51,18 @@ void b08(
 
 	// clocked block
   switch (sb.STATO) {
-    case start_st: {
+    case 0: {
                      if (START) sb.STATO = init;
                      break;
                    }
-    case init: {
+    case 1: {
                  sb.IN_R  = I;
                  sb.OUT_R = 0;
                  sb.MAR   = 0;
                  sb.STATO = loop_st;
                  break;
                }
-    case loop_st: {
+    case 2: {
                     if (((ROM_2 & ~sb.IN_R) | (ROM_1 & sb.IN_R) | (ROM_2 & ROM_1)) ==
                         0xFF) {
                       sb.OUT_R = (sb.OUT_R | ROM_OR);
@@ -74,7 +70,7 @@ void b08(
                     sb.STATO = the_end;
                     break;
                   }
-    case the_end: {
+    case 3: {
                     if (sb.MAR != 7) {
                       sb.MAR = sb.MAR + 1; 
                       sb.STATO = loop_st;
@@ -94,16 +90,21 @@ void b08(
   *O=sb.O;
 }
 
-void main()
+int main()
 {
-    _Bool        CLOCK;
+    _Bool    CLOCK=0;
     _Bool 	 START;
     unsigned char  I;
     unsigned char O;
     initial();
+    _Bool    MY_NONDET_Bool;
+    __ASTREE_volatile_input((MY_NONDET_Bool));
+    unsigned char    MY_NONDET_char;
+    __ASTREE_volatile_input((MY_NONDET_char));
     while(1) { 
-      START=nondet_bool();
-      I=nondet_char();
+      START=MY_NONDET_Bool;
+      I=MY_NONDET_char;
       b08(CLOCK, START, I, &O);
     }
+    return 0;
 }

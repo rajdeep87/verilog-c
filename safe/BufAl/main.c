@@ -4,13 +4,7 @@
 ## Task:    Buffer Allocation ##
 ###############################*/
 
-#include <stdio.h>
 #include <assert.h>
-#define TRUE 1
-#define FALSE 0
-
-_Bool nondet_bool();
-unsigned char nondet_uchar();
 
 struct state_elements_main{
   _Bool alloc;
@@ -81,21 +75,26 @@ void design(_Bool clock, _Bool alloc_raw, _Bool *nack, unsigned char *alloc_addr
 		       !smain.busy[15] ? 15 : 0;
 
 }
-void main() {
+int main() {
  
-  _Bool clock;
+  _Bool clock=0;
   _Bool alloc_raw;
   _Bool nack;
   unsigned char alloc_addr;
   _Bool free_raw;
   unsigned char free_addr_raw;
 
+  _Bool    MY_NONDET_Bool;
+  __ASTREE_volatile_input((MY_NONDET_Bool));
+  unsigned char    MY_NONDET_char;
+  __ASTREE_volatile_input((MY_NONDET_char));
   initial(&smain);
   while(1) {
-   alloc_raw = nondet_bool();
-   free_raw = nondet_bool();
-   free_addr_raw = nondet_uchar();
+   alloc_raw = MY_NONDET_Bool;
+   free_raw = MY_NONDET_Bool;
+   free_addr_raw = MY_NONDET_char;
    design(clock, alloc_raw, &nack, &alloc_addr, free_raw, free_addr_raw);
    assert(((((smain.count >> 4) & 1) == 0) || ((smain.count & 0xF) == 0)));
   }
+  return 0;
 }

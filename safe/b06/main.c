@@ -1,10 +1,9 @@
-#include <stdio.h>
 #include <assert.h>
 
 struct state_elements_b06 {
     unsigned char CC_MUX, USCITE;
     _Bool 	 ENABLE_COUNT, ACKOUT;
-    _Bool    state;
+    unsigned int    state;
 };
 struct state_elements_b06 sb;
 
@@ -53,13 +52,13 @@ void b06(
 	switch (sb.state)
   {
 
-	  case s_init: {
+	  case 0: {
                    sb.CC_MUX = cc_enin;
                    sb.USCITE = out_norm;
                    sb.state = s_wait;
                    break;
                  }
-    case s_wait: {
+    case 1: {
                    if (EQL) {
                      sb.USCITE = 0;
                      sb.CC_MUX = cc_ackin;
@@ -71,7 +70,7 @@ void b06(
                    }
                    break;
                  }
-    case s_intr_1: {
+    case 5: {
                      if (EQL) {
                        sb.USCITE = 0;
                        sb.CC_MUX = cc_ackin;
@@ -83,7 +82,7 @@ void b06(
                      }
                      break;
                    }
-    case s_enin: {
+    case 2: {
                    if (EQL) {
                      sb.USCITE = 0;
                      sb.CC_MUX = cc_ackin;
@@ -97,7 +96,7 @@ void b06(
                    }
                    break;
                  }
-    case s_enin_w: {
+    case 3: {
                      if (EQL) {
                        sb.USCITE = 1;
                        sb.CC_MUX = cc_enin;
@@ -109,7 +108,7 @@ void b06(
                      }
                      break;
                    }
-    case s_intr: {
+    case 4: {
                    if (EQL) {
                      sb.USCITE = 0;
                      sb.CC_MUX = cc_ackin;
@@ -121,7 +120,7 @@ void b06(
                    }
                    break;
                  }
-    case s_intr_w: {
+    case 6: {
                      if (EQL) {
                        sb.USCITE = 3;
                        sb.CC_MUX = cc_intr;
@@ -140,19 +139,24 @@ void b06(
   *ACKOUT = sb.ACKOUT;
 }
 
-void main()
+int main()
 {
   unsigned char CC_MUX;
   _Bool  EQL;
   unsigned char USCITE;
-  _Bool  clock;
+  _Bool  clock=0;
   _Bool  ENABLE_COUNT;
   _Bool  ACKOUT;
   _Bool  CONT_EQL;
+  _Bool    MY_NONDET_VAL;
+  __ASTREE_volatile_input((MY_NONDET_VAL));
   initial();
   while (1) {
+    EQL=MY_NONDET_VAL;
+    CONT_EQL=MY_NONDET_VAL;
     b06(&CC_MUX, EQL, &USCITE, clock, &ENABLE_COUNT, &ACKOUT, CONT_EQL);
     assert (ENABLE_COUNT==ACKOUT);
     assert ((USCITE&0x3)!=2);
   }
+  return 0;
 }
