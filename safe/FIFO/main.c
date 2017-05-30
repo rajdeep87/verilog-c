@@ -1,8 +1,4 @@
-#include <stdio.h>
 #include <assert.h>
-
-_Bool nondet_bool();
-unsigned char nondet_uchar();
 
 int MSBD = 3;
 int LAST = 15;
@@ -120,9 +116,8 @@ void design(_Bool clock, unsigned char dataIn, _Bool push, _Bool pop, _Bool *equ
   assert(*equal == 1);
 }
 
-
-void main() {
-  _Bool clock;
+int main() {
+  _Bool clock=0;
   unsigned char dataIn;
   _Bool push;
   _Bool pop;
@@ -130,11 +125,16 @@ void main() {
 
   initial_rbFIFO();
   initial_srFIFO();
+  _Bool    nd_b;
+  __ASTREE_volatile_input((nd_b));
+  unsigned char    nd_c;
+  __ASTREE_volatile_input((nd_c));
   
-  //while(1) {
-    push = nondet_bool();
-    pop = nondet_bool();
-    dataIn = nondet_uchar();
+  while(1) {
+    push = nd_b;
+    pop = nd_b;
+    dataIn = nd_c;
     design(clock, dataIn, push, pop, &equal);
-  //}
+  }
+  return 0;
 }

@@ -1,7 +1,4 @@
-#include <stdio.h>
 #include <assert.h>
-#define TRUE 1
-#define FALSE 0
 
 struct state_elements_main{
   unsigned char b[8];
@@ -27,12 +24,12 @@ void four_by_four(_Bool clock, unsigned char from, unsigned char to)
 
 
   valid = (smain.b[smain.treg] == 0) && 
-    (((smain.treg&0x3 == smain.freg&0x3) && !(smain.treg&0x4 == smain.freg&0x4)) || 
-     ((smain.treg&0x4 == smain.freg&0x4) && 
-      (((smain.treg&0x3 == 0) && (smain.freg&0x3 == 1)) || 
-       ((smain.treg&0x3 == 1) && (smain.freg&0x1 == 0)) || 
-       ((smain.treg&0x3 == 2) && (smain.freg&0x1 == 1)) || 
-       ((smain.treg&0x3 == 3) && (smain.freg&0x3 == 2)) )));
+    ((((smain.treg&0x3) == (smain.freg&0x3)) && !((smain.treg&0x4) == (smain.freg&0x4))) || 
+     (((smain.treg&0x4) == (smain.freg&0x4)) && 
+      ((((smain.treg&0x3) == 0) && ((smain.freg&0x3) == 1)) || 
+       (((smain.treg&0x3) == 1) && ((smain.freg&0x1) == 0)) || 
+       (((smain.treg&0x3) == 2) && ((smain.freg&0x1) == 1)) || 
+       (((smain.treg&0x3) == 3) && ((smain.freg&0x3) == 2)) )));
 
   parity = 
     (((smain.b[0] & 5) == 1) | ((smain.b[0] & 5) == 4)) ^
@@ -77,22 +74,19 @@ void four_by_four(_Bool clock, unsigned char from, unsigned char to)
 
   //#PASS:
   assert(!permutation==1 || parity==0);
-  /*
-  //#PASS:
-  assert property (permutation==1 |-> ##[0:100] permutation==1);
-  //#PASS:
-  assert property (permutation==1 && oddInversions==0 |-> ##[0:100] oddInversions==0);
-  //#PASS:
-  assert property (parity==0 |-> ##[0:100] parity==0);
-  */
 }
 
-void main() {
+int main() {
   _Bool clock;
   unsigned char from;
   unsigned char to;
+  unsigned char   nd_c;
+  __ASTREE_volatile_input((nd_c));
   initial_main();
-  //while(1) {
+  while(1) {
+    from = nd_c;
+    to = nd_c; 
     four_by_four(clock, from, to);
-  //}
+  }
+  return 0;
 }

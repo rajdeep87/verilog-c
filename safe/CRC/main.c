@@ -4,13 +4,10 @@
 ## Task:    CRC Generator     ##
 ###############################*/
 
-#include <stdio.h>
 #include <assert.h>
-#define TRUE 1
-#define FALSE 0
 
-#define CRC_INITIAL_VALUE 0xFFFFFFFF;
-#define CRC_REMAINDER 0xC704DD7B;
+int CRC_INITIAL_VALUE = 0xFFFFFFFF;
+int CRC_REMAINDER = 0xC704DD7B;
 
 struct state_elements_main {
   unsigned int crc;
@@ -146,14 +143,23 @@ int main()
   _Bool 	  crc_ok;	// the last CRC check cycle was OK
   unsigned int crc;		// direct acces to the CRC value 
 
-
-  unsigned int  new_crc;	// D inputs to the flops
-
+  _Bool    nd_b;
+  __ASTREE_volatile_input((nd_b));
+  unsigned char   nd_c;
+  __ASTREE_volatile_input((nd_c));
   initial();
-  //while(1) {
+  while(1) {
+    clk=nd_b;
+    clken=nd_b;
+    reset=nd_b;
+    load=nd_b;
+    compute=nd_b;
+    data_in=nd_c;
+    data_out=nd_c;
     crc_main(clk,clken,reset,load,compute,data_in,data_out,&crc_ok,&crc);
 
     // property
     assert(crc != 0xAAAAAAAA);
-  //}
+  }
+  return 0;
 }

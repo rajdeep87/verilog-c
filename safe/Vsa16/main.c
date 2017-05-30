@@ -1,7 +1,4 @@
-#include <stdio.h>
 #include <assert.h>
-#define TRUE 1
-#define FALSE 0
 
 // Control states.
 int	 IF = 0;		// instruction fetch
@@ -83,17 +80,17 @@ void alu16(
 
   // clocked block
 	switch(sa.State) {
-	 case IF: {
+	 case 0: {
               sa.NPC = sa.PC + 2;
               sa.IR = instruction;
               break;
         } // case: IF
-	 case ID: {
+	 case 1: {
               sa.A = sa.Registers[adFld1];
               sa.B = sa.Registers[adFld2];
               break;
         } // case: ID
-	 case EX: {
+	 case 2: {
               if (memRef) {
                 *ALUOutput = sa.A + Imm;
               } // if (memRef)
@@ -123,7 +120,7 @@ void alu16(
               } // if (branch)
             break;
             } // case: EX
-   case MEM: {
+   case 3: {
                if (memRef) {
                  if (opcode == LW)
                    sa.LMD = datain;
@@ -137,7 +134,7 @@ void alu16(
                else
                  sa.PC = sa.NPC;
              } // case: MEM
-   case WB: {
+   case 4: {
               if (regRegALU) {
                 if (adFld3 != 0)
                   sa.Registers[adFld3] = *ALUOutput;
@@ -178,7 +175,7 @@ void alu16(
 
 int main()
 {
-  _Bool clk;
+  _Bool clk=0;
   unsigned short int PC;
   unsigned short int instruction;
   unsigned short int ALUOutput;
@@ -186,8 +183,12 @@ int main()
   unsigned short int dataout;
   _Bool wr;
 
+  unsigned short int    nd_s;
+  __ASTREE_volatile_input((nd_s));
   initial_alu16();
-  //while(1) 
+  
+  datain=nd_s;
+  instruction=nd_s;
   alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
   alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
   alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);

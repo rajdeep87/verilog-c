@@ -1,5 +1,4 @@
-#define TRUE 1
-#define FALSE 0
+#include <assert.h>
 
 struct state_elements_Traffic_Light{
   unsigned char Light_Sign;
@@ -57,20 +56,17 @@ void Traffic_Light(_Bool reset, _Bool clk, unsigned int *time_left)
 }
 
 int main() {
-  _Bool reset;
-  _Bool clk;
+  _Bool clk=0;
   unsigned int time_left;
-  unsigned char temp;
   // do reset
   Traffic_Light(0, clk, &time_left);
   
-  //while(1) {
+  while(1) {
     Traffic_Light(1, clk, &time_left);
-    temp = sTraffic_Light.Light_Sign; 
-    //assert((time_left != 0xffffffff));
+    assert((time_left != 0xffffffff));
     // This property failes after 42 clock cycles when GREEN_count reaches 40 down to 0
     //assert((sTraffic_Light.Light_Sign != 2));
     assert((sTraffic_Light.Light_Sign != 3));
-  //}
+  }
   return 1;
 }

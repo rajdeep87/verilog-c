@@ -1,7 +1,4 @@
-#include <stdio.h>
 #include <assert.h>
-#define TRUE 1
-#define FALSE 0
 
 struct state_elements_control {
   unsigned char prev;
@@ -111,7 +108,6 @@ unsigned char changeCase(
 	unsigned char   in)
 {
 	unsigned char changecase;
-  return changecase;
   if (isUpper(in))
 	    changecase = in + 0x20;
 	else
@@ -168,20 +164,25 @@ void vlunc(
 
   *dataOut=smain.dataOut;
   //#PASS: The command lines are 1-hot encoded.
-  assert(!(Lcmd==1 && Ucmd==1 || Lcmd==1 && Ccmd==1 || Lcmd==1 && Ncmd==1 || Ucmd==1 && Ccmd==1 || Ucmd==1 && Ncmd==1 || Ccmd==1 && Ncmd==1));
+  assert(!((Lcmd==1 && Ucmd==1) || (Lcmd==1 && Ccmd==1) || (Lcmd==1 && Ncmd==1) || (Ucmd==1 && Ccmd==1) || (Ucmd==1 && Ncmd==1) || (Ccmd==1 && Ncmd==1)));
 }
 
-void main()
+int main()
 {
-  _Bool	 clock;
+  _Bool	 clock=0;
    _Bool 	 reset;
   unsigned char	 dataIn;
   unsigned char dataOut;
   initial();
   initial_control();
-  while(1) 
+  _Bool    nd_b;
+  __ASTREE_volatile_input((nd_b));
+  unsigned char   nd_c;
+  __ASTREE_volatile_input((nd_c));
+  while(1) {
+    reset=nd_b;
+    dataIn=nd_c;
     vlunc(clock,reset,dataIn,&dataOut);
+  }
+  return 0;
 }
-
-
-

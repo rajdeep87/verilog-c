@@ -1,15 +1,15 @@
 #include <assert.h>
 
-#define TRUE 1
-#define FALSE 0
+int TRUE = 1;
+int FALSE = 0;
 
-#define IDLE 0
-#define READY 1
-#define BUSY 2
+int IDLE = 0;
+int READY = 1;
+int BUSY = 2;
 
-#define NO_REQ 0
-#define REQ 1
-#define HAVE_TOKEN 2
+int NO_REQ = 0;
+int REQ = 1;
+int HAVE_TOKEN = 2;
 
 
 int A = 0;

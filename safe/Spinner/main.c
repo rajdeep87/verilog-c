@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <assert.h>
 
 struct state_elements_main{
@@ -22,17 +21,17 @@ void spinner(_Bool clock, _Bool spin, unsigned char amount, unsigned int din, un
   tmp1 = (tmp1 & 0x7FFFFFFF) | (((amount&0x1) ? (tmp0&0x1) : ((tmp0>>31) & 1)) << 31);
   
   tmp2 = (((amount>>1) & 0x1) ? ((tmp1 >> 2) & 1073741823) : (tmp1 & 1073741823)) | ((tmp2 >> 30)<<30);
-  tmp2 = (((((amount>>1) & 0x1) ? (tmp1 & 0x3) : ((tmp1>>30) & 0x3))&0x00000003)<<30) | tmp2&0x3FFFFFFF;
+  tmp2 = (((((amount>>1) & 0x1) ? (tmp1 & 0x3) : ((tmp1>>30) & 0x3))&0x00000003)<<30) | (tmp2&0x3FFFFFFF);
     
   tmp3 = (((amount>>2) & 0x1) ? ((tmp2 >> 4) & 0xFFFFFFF) : (tmp2 & 0xFFFFFFF)) | ((tmp3 >> 28)<<28);
-  tmp3 = (((((amount>>2) & 0x1) ? (tmp2 & 0xF) : ((tmp2>>28) & 0xF))&0x0000000F)<<28) | tmp3&0x0FFFFFFF;
+  tmp3 = (((((amount>>2) & 0x1) ? (tmp2 & 0xF) : ((tmp2>>28) & 0xF))&0x0000000F)<<28) | (tmp3&0x0FFFFFFF);
   
   tmp4 = (((amount>>3) & 0x1) ? ((tmp3 >> 8) & 0x0FFFFFF) : (tmp3 & 0x0FFFFFF)) | ((tmp4 >> 24)<<24);
-  tmp4 = (((((amount>>3) & 0x1) ? (tmp3 & 0xFF) : ((tmp3>>24) & 0xFF))&0x000000FF)<<24) | tmp3&0x00FFFFFF;
+  tmp4 = (((((amount>>3) & 0x1) ? (tmp3 & 0xFF) : ((tmp3>>24) & 0xFF))&0x000000FF)<<24) | (tmp3&0x00FFFFFF);
 
   
   tmp5 = (((amount>>4) & 0x1) ? ((tmp4 >> 16) & 0xFFFF) : (tmp4 & 0xFFFF)) | ((tmp4 >> 16)<<16);
-  tmp5 = (((((amount>>4) & 0x1) ? (tmp4 & 0xFFFF) : ((tmp4>>16) & 0xFFFF))&0x0000FFFF)<<16) | tmp4&0x0000FFFF;
+  tmp5 = (((((amount>>4) & 0x1) ? (tmp4 & 0xFFFF) : ((tmp4>>16) & 0xFFFF))&0x0000FFFF)<<16) | (tmp4&0x0000FFFF);
   
   if(smain.spl)
     smain.inr = smain.dout;
@@ -46,19 +45,29 @@ void spinner(_Bool clock, _Bool spin, unsigned char amount, unsigned int din, un
   *dout = smain.dout;
     
   // PASS
-  assert(!((smain.inr&0xFFFFFFFF!=0) && (smain.dout&0xFFFFFFFF!=0)) || (smain.spl==0 || smain.inr&0xFFFFFFFF!=0));
+  assert(!(((smain.inr&0xFFFFFFFF)!=0) && ((smain.dout&0xFFFFFFFF)!=0)) || (smain.spl==0 || (smain.inr&0xFFFFFFFF)!=0));
   // PASS
   //assert(!(inr[31:0]==0 && dout[31:0]==0) ||  (spl==0 || inr[31:0]==0));
-  assert(!((smain.inr&0xFFFFFFFF==0) && (smain.dout&0xFFFFFFFF==0)) || (smain.spl==0 || smain.inr&0xFFFFFFFF==0));
+  assert(!(((smain.inr&0xFFFFFFFF)==0) && ((smain.dout&0xFFFFFFFF)==0)) || (smain.spl==0 || (smain.inr&0xFFFFFFFF)==0));
 }
 
-void main() {
-  _Bool clock;
+int main() {
+  _Bool clock=0;
   _Bool spin;
   unsigned char amount;
   unsigned int din;
   unsigned int dout;
+  _Bool    nd_b;
+  __ASTREE_volatile_input((nd_b));
+  unsigned int    nd_i;
+  __ASTREE_volatile_input((nd_i));
+  unsigned char   nd_c;
+  __ASTREE_volatile_input((nd_c));
   while(1) {
+    spin=nd_b;
+    amount=nd_c;
+    din=nd_i;
     spinner(clock, spin, amount, din, &dout);
   }
+  return 0;
 }

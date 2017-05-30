@@ -1,8 +1,4 @@
-#include <stdio.h>
-#define TRUE 1
-#define FALSE 0
-
-unsigned char nondet_uchar();
+#include <assert.h>
 
 // parameters
   int BITS = 4;
@@ -215,7 +211,7 @@ void vending(_Bool clock, unsigned char deposit, unsigned char *change, _Bool *b
  #      However, total is not up to date if we borrowed a nickel from the
  #      total count to give change out of three dimes.  Hence, total may
  #      read either 25c or 30c.*/
- assert((!(svending.state==BEVERAGE)) || ((((total>>2)&3)==1) && ((total&3)==1) || ((total&3)==2)));
+ assert((!(svending.state==BEVERAGE)) || (((((total>>2)&3)==1) && ((total&3)==1)) || ((total&3)==2)));
 
 }
 
@@ -232,8 +228,6 @@ void initial_monitor(_Bool clock, unsigned char deposit, _Bool beverage, unsigne
 
 void monitor(_Bool clock, unsigned char deposit, _Bool beverage, unsigned char change, unsigned char *balance)
 {
-  unsigned char deposit;
-  unsigned char change;
   unsigned char valD;
   unsigned char valC;
   unsigned char valB;
@@ -246,26 +240,24 @@ void monitor(_Bool clock, unsigned char deposit, _Bool beverage, unsigned char c
 
 unsigned char deposit;
 
-void main()
+int main()
 {
   
-  _Bool clock;
+  _Bool clock=0;
   unsigned char balance;
   unsigned char change;
-  unsigned char nd;
   _Bool beverage;
   _Bool enable;
   
+  unsigned char   nd_c;
+  __ASTREE_volatile_input((nd_c));
   initial_vending(clock, deposit, &change, &beverage, &enable);
   initial_monitor(clock, deposit, beverage, change, &balance);
 
-  deposit = nondet_uchar() & 3;
+  deposit = nd_c & 3;
   vending(clock, deposit, &change, &beverage, &enable);
   monitor(clock, deposit, beverage, change, &balance);
 
-  if(enable)
-    deposit = nd & 3;
-  else
-    deposit = NONE;
+  return 0;
 }
 

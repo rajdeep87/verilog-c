@@ -6,12 +6,8 @@
 // C Author:  Rajdeep Mukherjee                                     *
 // ****************************************************************** 
 
-#include <stdio.h>
 #include <assert.h>
-#define TRUE 1
-#define FALSE 0
 
-unsigned char nondet_uchar();
 // parameter definition 
   int PASSES = 10;
   int NRDR = 4; // number of reader process
@@ -51,8 +47,6 @@ struct state_elements_main smain;
 
 void rcu(_Bool clock, unsigned char select)
 {
-  int i;
-  
   // clocked block with blocking assignments
   smain.self = select;
   if(smain.self >= NRDR)
@@ -138,7 +132,7 @@ void rcu(_Bool clock, unsigned char select)
     else if((unsigned int)smain.pc[(unsigned char)smain.self] == L2) {
       if(smain.lclFlip[(unsigned char)smain.self] == smain.flip)
       {
-        smain.both[(unsigned char)smain.self] = FALSE;
+        smain.both[(unsigned char)smain.self] = 0;
         smain.pc[(unsigned char)smain.self] = L4;
       }
       else
@@ -151,7 +145,7 @@ void rcu(_Bool clock, unsigned char select)
     }
    else if((unsigned int)smain.pc[(unsigned char)smain.self] == L3)
    {
-     smain.both[(unsigned char)smain.self] = TRUE;
+     smain.both[(unsigned char)smain.self] = 1;
      smain.pc[(unsigned char)smain.self] = L4;
    }
    else if((unsigned int)smain.pc[(unsigned char)smain.self] == L4)
@@ -186,17 +180,17 @@ void rcu(_Bool clock, unsigned char select)
 void initial() {
   
   // register initialization
-  smain.flip = FALSE;
+  smain.flip = 0;
   smain.passctr = 0;
   smain.cpunum = 0;
   
   unsigned int i;
   for(i = 0; i < NRDR_ELEM; i = i + 1)
-    smain.ctr[i] = FALSE;
+    smain.ctr[i] = 0;
   for(i = 0; i < NRDR; i = i + 1)
   {
-    smain.lclFlip[i] = FALSE;
-    smain.both[i] = FALSE;
+    smain.lclFlip[i] = 0;
+    smain.both[i] = 0;
     smain.pc[i] = L0;
   }
   smain.pcu = L0;
@@ -205,15 +199,17 @@ void initial() {
 }
 
 int main() {
-  _Bool clock;
+  _Bool clock=0;
   unsigned char select; // non-deterministic scheduler
 
   // Initialization
   initial();
   
-  //while(1) {
+  unsigned char   nd_c;
+  __ASTREE_volatile_input((nd_c));
+  while(1) {
    
-   select = nondet_uchar(); // non-deterministic scheduler
+   select = nd_c; // non-deterministic scheduler
    // call rcu 
    rcu(clock, select);
    
@@ -228,6 +224,6 @@ int main() {
    //                      G lclPassctr[7:4]={0,15};
    // ******************************************************************
    assert( (((smain.lclPassctr >> 4) & 0xf) == 0) || (((smain.lclPassctr >> 4) & 0xf) == 15) );
- //} // end of while(1)
+ } // end of while(1)
  return 1;
 } // end of main
