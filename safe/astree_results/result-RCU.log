@@ -1,0 +1,151 @@
+/* ABI */
+Using predefined ABI Analyzer default
+/*             _        _         __         _
+              //\      | |       /_/        /\\
+             //  \  ___| |_ _ __ ___  ___  /  \\
+            // /\ \/ __| __| '__/ _ \/ _ \/ /\ \\
+           // ____ \__ \ |_| | |  __/  __/ ____ \\
+    ______//_/    \_\__/\__|_|  \___|\__/_/    \_\\______
+
+Analyzer launched at 2017/05/30 22:32:13 (GMT+2)
+Developer mode
+Command line was "/home/mine/absinthe/svn/astree/analyzer.opt --preprocess cpp -I. -nostdinc RCU/main.c --exec-fn main --partition-all --max-finite-int-set-size 8 "
+Launched by "mine" on "bihexachat", pid=14809
+Executable "analyzer.opt" created at 2017/05/21 23:39:50 (GMT+2)
+Integer size: unlimited
+End-user: Astree Team - Ecole Normale Superieure
+Version signature is "f06bae125824e4420694b8c2e11e07b9 -" */
+
+/* Filter patterns */
+/* External declarations */
+/* Parsing files */
+RCU/main.c: parsing... (file 1 of 1)
+Parsed 195 physical lines of preprocessed code
+List of malloc contexts:
+0 typed malloc context(s)
+Computing static dependencies ...
+
+Computing dependency graph
+Computing cycles
+Dependency analysis done
+/* Variables in circular dependencies (1) */
+i
+
+19 total declaration(s)
+/* Domains: Pointers, and Guard domain, and Packed (Octagons), and High_passband_domain(10), and Second_order_filter_domain(10), and Arithmetico-geometric series, and new clock, and Dependencies(static), and Equality relations, and Modulo relations, and Symbolic binary floats, and Packed (Boolean relations (based on Absolute value equality relations, and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals)), and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals, and Symbolic lvalues. */
+No ambiguity due to side effects in expressions
+/* Executing <main> */
+RCU/main.c:210.2-227.2: up iteration #0
+[ Some constraints are not stable:
+   Guards
+   Main domain
+   Octagons
+   Symbolic binary floats ]
+RCU/main.c:210.2-227.2: up iteration #1
+[ Some constraints are not stable:
+   Main domain
+   Symbolic binary floats ]
+RCU/main.c:210.2-227.2: up iteration #2
+[ Some constraints are not stable:
+   Main domain
+   Octagons
+   Symbolic binary floats ]
+RCU/main.c:210.2-227.2: up iteration #3
+[ Some constraints are not stable:
+   Main domain
+   Octagons ]
+RCU/main.c:210.2-227.2: up iteration #4
+[ Some constraints are not stable:
+   Main domain
+   Octagons
+   Symbolic binary floats ]
+RCU/main.c:210.2-227.2: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+RCU/main.c:210.2-227.2: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+RCU/main.c:210.2-227.2: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+RCU/main.c:210.2-227.2: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+RCU/main.c:210.2-227.2: up iteration #9
+[ Some constraints are not stable:
+   Main domain
+   Symbolic binary floats ]
+RCU/main.c:210.2-227.2: up iteration #10
+[ Some constraints are not stable:
+   Main domain
+   Symbolic binary floats ]
+RCU/main.c:210.2-227.2: up iteration #11
+[ Some constraints are not stable:
+   Main domain ]
+RCU/main.c:210.2-227.2: up iteration #12
+[ Some constraints are not stable:
+   Main domain ]
+RCU/main.c:210.2-227.2: up iteration #13
+[ Some constraints are not stable:
+   Main domain ]
+RCU/main.c:210.2-227.2: up iteration #14
+[ Some constraints are not stable:
+   Main domain ]
+RCU/main.c:210.2-227.2: up iteration #15
+[ Some constraints are not stable:
+   Main domain ]
+RCU/main.c:210.2-227.2: up iteration #16
+[ Some constraints are not stable:
+   Octagons ]
+RCU/main.c:210.2-227.2: up iteration #17
+[ Some constraints are not stable:
+   Octagons ]
+RCU/main.c:210.2-227.2: up iteration #18
+[ Some constraints are not stable:
+   Octagons ]
+RCU/main.c:210.2-227.2: up iteration #19
+[ Some constraints are not stable:
+   Octagons ]
+RCU/main.c:210.2-227.2: up iteration #20
+RCU/main.c:210.2-227.2: down iteration #0
+RCU/main.c:80.22-28:[call#main@199:loop@208>=2:call#rcu@212:if@50=true:]: WARN (E): out-of-bound array index [0, 15] not included in [0, 7]
+RCU/main.c:85.11-42:[call#main@199:loop@208>=2:call#rcu@212:if@50=true:]: WARN (E): implicit signed int->unsigned char conversion range [1, 256] not included in [0, 255]
+RCU/main.c:106.22-28:[call#main@199:loop@208>=2:call#rcu@212:if@50=true:]: WARN (E): out-of-bound array index [0, 15] not included in [0, 7]
+RCU/main.c:111.9-40:[call#main@199:loop@208>=2:call#rcu@212:if@50=true:]: WARN (E): implicit signed int->unsigned char conversion range [1, 256] not included in [0, 255]
+RCU/main.c:153.5-67:[call#main@199:loop@208>=2:call#rcu@212:if@50=false:]: WARN (E): implicit signed int->unsigned char conversion range [1, 256] not included in [0, 255]
+RCU/main.c:158.5-67:[call#main@199:loop@208>=2:call#rcu@212:if@50=false:]: WARN (E): implicit signed int->unsigned char conversion range [1, 256] not included in [0, 255]
+RCU/main.c:221.3-135:[call#main@199:loop@208>=2:]: WARN (E): assert failure __ASTREE_assert((!(smain.pcu == 8 && (smain.cpunum & 7) == 4) || !((smain.lclPassctr & 255) == (smain.passctr & 255))))
+RCU/main.c:226.3-103:[call#main@199:loop@208>=2:]: WARN (E): assert failure __ASTREE_assert(((smain.lclPassctr >> 4 & 15) == 0 || (smain.lclPassctr >> 4 & 15) == 15))
+RCU/main.c:210.2-7:[call#main@199:loop@208>=2:]: WARN (E): Loop never terminates for this context. 
+WARNING: RCU/main.c:201.0-229.1:[:]: Analyzed entry-point main never returns. 
+Time spent in analysis of entry-point main: 0.351037 s (0 h 0 mn 0 s)
+
+1 procedure(s) executed
+/* Possibly shared variables */
+No shared variables found
+/* Reached functions */
+| ----------------------------------------------------------------------- |
+|                             |      Number of statements       |         |
+| Reached functions (3/3)     |   total | reached | not reached | percent |
+| ----------------------------------------------------------------------- |
+RCU/main.c:48.0-178.1: | rcu                         |      78 |      78 |           0 |   100 % |
+RCU/main.c:201.0-229.1: | main                        |       9 |       8 |           1 |    88 % |
+RCU/main.c:180.0-199.1: | initial                     |      17 |      17 |           0 |   100 % |
+| ----------------------------------------------------------------------- |
+/* Result summary */
+Errors:                        0
+Alarms on code locations
+  Run-time errors:             8
+  Data flow anomalies:         1
+  Rule violations:             0
+Alarms on memory locations
+  Data races:                  0
+Reached code:                 99 % (103/104 statements)
+
+dataflow per process and per function
+main-process: rcu: smain RW
+main-process: initial: smain W
+main-process: main: smain R
+
+/* Max heap size: 5.71 MB, 6 major collections */
+Duration:                   0.38 s (0 h 0 mn 0 s)

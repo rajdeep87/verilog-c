@@ -1,0 +1,73 @@
+/* ABI */
+Using predefined ABI Analyzer default
+/*             _        _         __         _
+              //\      | |       /_/        /\\
+             //  \  ___| |_ _ __ ___  ___  /  \\
+            // /\ \/ __| __| '__/ _ \/ _ \/ /\ \\
+           // ____ \__ \ |_| | |  __/  __/ ____ \\
+    ______//_/    \_\__/\__|_|  \___|\__/_/    \_\\______
+
+Analyzer launched at 2017/05/30 22:32:14 (GMT+2)
+Developer mode
+Command line was "/home/mine/absinthe/svn/astree/analyzer.opt --preprocess cpp -I. -nostdinc Vsa16/main.c --exec-fn main --partition-all --max-finite-int-set-size 8 "
+Launched by "mine" on "bihexachat", pid=14833
+Executable "analyzer.opt" created at 2017/05/21 23:39:50 (GMT+2)
+Integer size: unlimited
+End-user: Astree Team - Ecole Normale Superieure
+Version signature is "f06bae125824e4420694b8c2e11e07b9 -" */
+
+/* Filter patterns */
+/* External declarations */
+/* Parsing files */
+Vsa16/main.c: parsing... (file 1 of 1)
+Parsed 169 physical lines of preprocessed code
+List of malloc contexts:
+0 typed malloc context(s)
+Computing static dependencies ...
+
+Computing dependency graph
+Computing cycles
+Dependency analysis done
+/* Variables in circular dependencies (1) */
+i
+
+21 total declaration(s)
+/* Domains: Pointers, and Guard domain, and Packed (Octagons), and High_passband_domain(10), and Second_order_filter_domain(10), and Arithmetico-geometric series, and new clock, and Dependencies(static), and Equality relations, and Modulo relations, and Symbolic binary floats, and Packed (Boolean relations (based on Absolute value equality relations, and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals)), and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals, and Symbolic lvalues. */
+No ambiguity due to side effects in expressions
+/* Executing <main> */
+Vsa16/main.c:115.18-41:[call#main@181:call#alu16@199:]: WARN (E): implicit signed int->unsigned short conversion range [-255, 0] not included in [0, 65535]
+Vsa16/main.c:130.27-37:[call#main@181:call#alu16@200:]: WARN (E): uninitialized read: reading 2 byte(s) at offset(s) 0 in variable ALUOutput
+Vsa16/main.c:140.41-51:[call#main@181:call#alu16@200:if@144=true:]: WARN (E): uninitialized read: reading 2 byte(s) at offset(s) 0 in variable ALUOutput
+Vsa16/main.c:144.41-51:[call#main@181:call#alu16@200:if@148=true:]: WARN (E): uninitialized read: reading 2 byte(s) at offset(s) 0 in variable ALUOutput
+Vsa16/main.c:140.41-51:[call#main@181:call#alu16@201:if@144=true:]: WARN (E): uninitialized read: reading 2 byte(s) at offset(s) 0 in variable ALUOutput
+Vsa16/main.c:144.41-51:[call#main@181:call#alu16@201:if@148=true:]: WARN (E): uninitialized read: reading 2 byte(s) at offset(s) 0 in variable ALUOutput
+Time spent in analysis of entry-point main: 0.049361 s (0 h 0 mn 0 s)
+
+1 procedure(s) executed
+/* Possibly shared variables */
+No shared variables found
+/* Reached functions */
+| ----------------------------------------------------------------------- |
+|                             |      Number of statements       |         |
+| Reached functions (3/3)     |   total | reached | not reached | percent |
+| ----------------------------------------------------------------------- |
+Vsa16/main.c:176.0-197.1: | main                        |      15 |      15 |           0 |   100 % |
+Vsa16/main.c:40.0-53.1: | initial_alu16               |      13 |      13 |           0 |   100 % |
+Vsa16/main.c:55.0-174.1: | alu16                       |      66 |      66 |           0 |   100 % |
+| ----------------------------------------------------------------------- |
+/* Result summary */
+Errors:                        0
+Alarms on code locations
+  Run-time errors:             4
+  Data flow anomalies:         0
+  Rule violations:             0
+Alarms on memory locations
+  Data races:                  0
+Reached code:                100 % (94/94 statements)
+
+dataflow per process and per function
+main-process: initial_alu16: sa W
+main-process: alu16: sa RW
+
+/* Max heap size: 3.75 MB, 4 major collections */
+Duration:                   0.08 s (0 h 0 mn 0 s)

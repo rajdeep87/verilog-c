@@ -1,0 +1,527 @@
+/* ABI */
+Using predefined ABI Analyzer default
+/*             _        _         __         _
+              //\      | |       /_/        /\\
+             //  \  ___| |_ _ __ ___  ___  /  \\
+            // /\ \/ __| __| '__/ _ \/ _ \/ /\ \\
+           // ____ \__ \ |_| | |  __/  __/ ____ \\
+    ______//_/    \_\__/\__|_|  \___|\__/_/    \_\\______
+
+Analyzer launched at 2017/05/30 22:32:12 (GMT+2)
+Developer mode
+Command line was "/home/mine/absinthe/svn/astree/analyzer.opt --preprocess cpp -I. -nostdinc CRC/main.c --exec-fn main --partition-all --max-finite-int-set-size 8 "
+Launched by "mine" on "bihexachat", pid=14797
+Executable "analyzer.opt" created at 2017/05/21 23:39:50 (GMT+2)
+Integer size: unlimited
+End-user: Astree Team - Ecole Normale Superieure
+Version signature is "f06bae125824e4420694b8c2e11e07b9 -" */
+
+/* Filter patterns */
+/* External declarations */
+/* Parsing files */
+CRC/main.c: parsing... (file 1 of 1)
+CRC/main.c:9.24-34: WARN (E): implicit unsigned int->signed int conversion range {4294967295} not included in [-2147483648, 2147483647]
+CRC/main.c:10.20-30: WARN (E): implicit unsigned int->signed int conversion range {3338984827} not included in [-2147483648, 2147483647]
+Parsed 123 physical lines of preprocessed code
+CRC/main.c:93.2-31: WARN (E): implicit signed int->unsigned int conversion range {-1} not included in [0, 4294967295]
+List of malloc contexts:
+0 typed malloc context(s)
+Computing static dependencies ...
+
+Computing dependency graph
+Computing cycles
+Dependency analysis done
+/* Variables in circular dependencies (5) */
+smain
+i
+n
+i
+new_crc
+
+7 total declaration(s)
+/* Domains: Pointers, and Guard domain, and Packed (Octagons), and High_passband_domain(10), and Second_order_filter_domain(10), and Arithmetico-geometric series, and new clock, and Dependencies(static), and Equality relations, and Modulo relations, and Symbolic binary floats, and Packed (Boolean relations (based on Absolute value equality relations, and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals)), and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals, and Symbolic lvalues. */
+No ambiguity due to side effects in expressions
+/* Executing <main> */
+CRC/main.c:93.2-31:[call#main@139:call#initial@155:]: WARN (E): implicit signed int->unsigned int conversion range {-1} not included in [0, 4294967295]
+CRC/main.c:33.0-34.21: up iteration #0
+[ Some constraints are not stable:
+   Arithmetico-geometric series
+   Main domain
+   New_clock
+   Symbolic binary floats ]
+CRC/main.c:33.0-34.21: up iteration #1
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #2
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #10
+CRC/main.c:33.0-34.21: down iteration #0
+CRC/main.c:51.27-32:[call#main@139:loop@156=1/1:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 23 in variable c
+CRC/main.c:52.35-40:[call#main@139:loop@156=1/1:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 22 in variable c
+CRC/main.c:53.43-48:[call#main@139:loop@156=1/1:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 21 in variable c
+CRC/main.c:54.43-48:[call#main@139:loop@156=1/1:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 20 in variable c
+CRC/main.c:55.51-56:[call#main@139:loop@156=1/1:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 19 in variable c
+CRC/main.c:56.51-56:[call#main@139:loop@156=1/1:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 18 in variable c
+CRC/main.c:57.35-40:[call#main@139:loop@156=1/1:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 17 in variable c
+CRC/main.c:58.43-48:[call#main@139:loop@156=1/1:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 16 in variable c
+CRC/main.c:59.43-48:[call#main@139:loop@156=1/1:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 15 in variable c
+CRC/main.c:86.0-87.25: up iteration #0
+[ Some constraints are not stable:
+   Arithmetico-geometric series
+   Main domain
+   New_clock
+   Symbolic binary floats ]
+CRC/main.c:86.0-87.25: up iteration #1
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #2
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #10
+CRC/main.c:86.0-87.25: down iteration #0
+CRC/main.c:87.3-6:[call#main@139:loop@156=1/1:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:loop@91>=16:]: WARN (E): unsigned int arithmetic range [2, 4294967297] not included in [0, 4294967295]
+CRC/main.c:116.2-38:[call#main@139:loop@156=1/1:call#crc_main@164:]: WARN (E): implicit unsigned int->unsigned char conversion range {4294967040} not included in [0, 255]
+CRC/main.c:162.4-40:[call#main@139:loop@156=1/1:]: WARN (E): assert failure __ASTREE_assert((crc != 2863311530U))
+CRC/main.c:33.0-34.21: up iteration #0
+[ Some constraints are not stable:
+   Arithmetico-geometric series
+   Main domain
+   New_clock
+   Symbolic binary floats ]
+CRC/main.c:33.0-34.21: up iteration #1
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #2
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #10
+CRC/main.c:33.0-34.21: down iteration #0
+CRC/main.c:86.0-87.25: up iteration #0
+[ Some constraints are not stable:
+   Arithmetico-geometric series
+   Main domain
+   New_clock
+   Symbolic binary floats ]
+CRC/main.c:86.0-87.25: up iteration #1
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #2
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #10
+CRC/main.c:86.0-87.25: down iteration #0
+CRC/main.c:151.2-163.3: up iteration #0
+[ Some constraints are not stable:
+   Guards ]
+CRC/main.c:33.0-34.21: up iteration #0
+[ Some constraints are not stable:
+   Arithmetico-geometric series
+   Main domain
+   New_clock
+   Symbolic binary floats ]
+CRC/main.c:33.0-34.21: up iteration #1
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #2
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #10
+CRC/main.c:33.0-34.21: down iteration #0
+CRC/main.c:86.0-87.25: up iteration #0
+[ Some constraints are not stable:
+   Arithmetico-geometric series
+   Main domain
+   New_clock
+   Symbolic binary floats ]
+CRC/main.c:86.0-87.25: up iteration #1
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #2
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #10
+CRC/main.c:86.0-87.25: down iteration #0
+CRC/main.c:151.2-163.3: up iteration #1
+CRC/main.c:33.0-34.21: up iteration #0
+[ Some constraints are not stable:
+   Arithmetico-geometric series
+   Main domain
+   New_clock
+   Symbolic binary floats ]
+CRC/main.c:33.0-34.21: up iteration #1
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #2
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #10
+CRC/main.c:33.0-34.21: down iteration #0
+CRC/main.c:86.0-87.25: up iteration #0
+[ Some constraints are not stable:
+   Arithmetico-geometric series
+   Main domain
+   New_clock
+   Symbolic binary floats ]
+CRC/main.c:86.0-87.25: up iteration #1
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #2
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #10
+CRC/main.c:86.0-87.25: down iteration #0
+CRC/main.c:151.2-163.3: down iteration #0
+CRC/main.c:33.0-34.21: up iteration #0
+[ Some constraints are not stable:
+   Arithmetico-geometric series
+   Main domain
+   New_clock
+   Symbolic binary floats ]
+CRC/main.c:33.0-34.21: up iteration #1
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #2
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #10
+CRC/main.c:33.0-34.21: down iteration #0
+CRC/main.c:51.27-32:[call#main@139:loop@156>=2:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 23 in variable c
+CRC/main.c:52.35-40:[call#main@139:loop@156>=2:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 22 in variable c
+CRC/main.c:53.43-48:[call#main@139:loop@156>=2:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 21 in variable c
+CRC/main.c:54.43-48:[call#main@139:loop@156>=2:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 20 in variable c
+CRC/main.c:55.51-56:[call#main@139:loop@156>=2:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 19 in variable c
+CRC/main.c:56.51-56:[call#main@139:loop@156>=2:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 18 in variable c
+CRC/main.c:57.35-40:[call#main@139:loop@156>=2:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 17 in variable c
+CRC/main.c:58.43-48:[call#main@139:loop@156>=2:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 16 in variable c
+CRC/main.c:59.43-48:[call#main@139:loop@156>=2:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 15 in variable c
+CRC/main.c:86.0-87.25: up iteration #0
+[ Some constraints are not stable:
+   Arithmetico-geometric series
+   Main domain
+   New_clock
+   Symbolic binary floats ]
+CRC/main.c:86.0-87.25: up iteration #1
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #2
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #10
+CRC/main.c:86.0-87.25: down iteration #0
+CRC/main.c:87.3-6:[call#main@139:loop@156>=2:call#crc_main@164:call#parallel_crces@118:afterloop@38>=16:loop@91>=16:]: WARN (E): unsigned int arithmetic range [2, 4294967297] not included in [0, 4294967295]
+CRC/main.c:116.2-38:[call#main@139:loop@156>=2:call#crc_main@164:]: WARN (E): implicit unsigned int->unsigned char conversion range [4294967040, 4294967295] not included in [0, 255]
+CRC/main.c:162.4-40:[call#main@139:loop@156>=2:]: WARN (E): assert failure __ASTREE_assert((crc != 2863311530U))
+CRC/main.c:33.0-34.21: up iteration #0
+[ Some constraints are not stable:
+   Arithmetico-geometric series
+   Main domain
+   New_clock
+   Symbolic binary floats ]
+CRC/main.c:33.0-34.21: up iteration #1
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #2
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:33.0-34.21: up iteration #10
+CRC/main.c:33.0-34.21: down iteration #0
+CRC/main.c:86.0-87.25: up iteration #0
+[ Some constraints are not stable:
+   Arithmetico-geometric series
+   Main domain
+   New_clock
+   Symbolic binary floats ]
+CRC/main.c:86.0-87.25: up iteration #1
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #2
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+CRC/main.c:86.0-87.25: up iteration #10
+CRC/main.c:86.0-87.25: down iteration #0
+CRC/main.c:151.2-7:[call#main@139:loop@156>=2:]: WARN (E): Loop never terminates for this context. 
+WARNING: CRC/main.c:134.0-165.1:[:]: Analyzed entry-point main never returns. 
+Time spent in analysis of entry-point main: 0.291791 s (0 h 0 mn 0 s)
+
+1 procedure(s) executed
+/* Possibly shared variables */
+No shared variables found
+/* Reached functions */
+| ----------------------------------------------------------------------- |
+|                             |      Number of statements       |         |
+| Reached functions (4/4)     |   total | reached | not reached | percent |
+| ----------------------------------------------------------------------- |
+CRC/main.c:17.0-90.1: | parallel_crces              |      55 |      55 |           0 |   100 % |
+CRC/main.c:134.0-165.1: | main                        |      23 |      22 |           1 |    95 % |
+CRC/main.c:92.0-94.1: | initial                     |       1 |       1 |           0 |   100 % |
+CRC/main.c:96.0-132.1: | crc_main                    |       7 |       7 |           0 |   100 % |
+| ----------------------------------------------------------------------- |
+/* Result summary */
+Errors:                        0
+Alarms on code locations
+  Run-time errors:            15
+  Data flow anomalies:         1
+  Rule violations:             0
+Alarms on memory locations
+  Data races:                  0
+Reached code:                 98 % (85/86 statements)
+
+dataflow per process and per function
+main-process: initial: smain W
+main-process: crc_main: smain RW
+
+/* Max heap size: 6.57 MB, 5 major collections */
+Duration:                   0.32 s (0 h 0 mn 0 s)

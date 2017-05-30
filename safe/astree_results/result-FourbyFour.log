@@ -1,0 +1,85 @@
+/* ABI */
+Using predefined ABI Analyzer default
+/*             _        _         __         _
+              //\      | |       /_/        /\\
+             //  \  ___| |_ _ __ ___  ___  /  \\
+            // /\ \/ __| __| '__/ _ \/ _ \/ /\ \\
+           // ____ \__ \ |_| | |  __/  __/ ____ \\
+    ______//_/    \_\__/\__|_|  \___|\__/_/    \_\\______
+
+Analyzer launched at 2017/05/30 22:32:13 (GMT+2)
+Developer mode
+Command line was "/home/mine/absinthe/svn/astree/analyzer.opt --preprocess cpp -I. -nostdinc FourbyFour/main.c --exec-fn main --partition-all --max-finite-int-set-size 8 "
+Launched by "mine" on "bihexachat", pid=14805
+Executable "analyzer.opt" created at 2017/05/21 23:39:50 (GMT+2)
+Integer size: unlimited
+End-user: Astree Team - Ecole Normale Superieure
+Version signature is "f06bae125824e4420694b8c2e11e07b9 -" */
+
+/* Filter patterns */
+/* External declarations */
+/* Parsing files */
+FourbyFour/main.c: parsing... (file 1 of 1)
+Parsed 84 physical lines of preprocessed code
+List of malloc contexts:
+0 typed malloc context(s)
+Computing static dependencies ...
+
+Computing dependency graph
+Computing cycles
+Dependency analysis done
+/* Variables in circular dependencies (0) */
+
+4 total declaration(s)
+/* Domains: Pointers, and Guard domain, and Packed (Octagons), and High_passband_domain(10), and Second_order_filter_domain(10), and Arithmetico-geometric series, and new clock, and Dependencies(static), and Equality relations, and Modulo relations, and Symbolic binary floats, and Packed (Boolean relations (based on Absolute value equality relations, and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals)), and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals, and Symbolic lvalues. */
+No ambiguity due to side effects in expressions
+/* Executing <main> */
+FourbyFour/main.c:89.17-22:[call#main@84:loop@91=1/1:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 0 in variable clock
+FourbyFour/main.c:26.19-29:[call#main@84:loop@91=1/1:call#four_by_four@94:]: WARN (E): out-of-bound array index [0, 255] not included in [0, 7]
+FourbyFour/main.c:26.11-30:[call#main@84:loop@91=1/1:call#four_by_four@94:]: WARN (E): invalid dereference: dereferencing 1 byte(s) at offset(s) [0,255] may overflow the variable smain of byte-size 10
+FourbyFour/main.c:71.12-22:[call#main@84:loop@91=1/1:call#four_by_four@94:]: WARN (E): out-of-bound array index [0, 9] not included in [0, 7]
+FourbyFour/main.c:71.34-44:[call#main@84:loop@91=1/1:call#four_by_four@94:]: WARN (E): out-of-bound array index [0, 255] not included in [0, 7]
+FourbyFour/main.c:71.26-45:[call#main@84:loop@91=1/1:call#four_by_four@94:]: WARN (E): invalid dereference: dereferencing 1 byte(s) at offset(s) [0,255] may overflow the variable smain of byte-size 10
+FourbyFour/main.c:72.12-22:[call#main@84:loop@91=1/1:call#four_by_four@94:]: WARN (E): out-of-bound array index [0, 9] not included in [0, 7]
+FourbyFour/main.c:86.2-90.3: up iteration #0
+FourbyFour/main.c:86.2-90.3: down iteration #0
+FourbyFour/main.c:89.17-22:[call#main@84:loop@91>=2:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 0 in variable clock
+FourbyFour/main.c:26.19-29:[call#main@84:loop@91>=2:call#four_by_four@94:]: WARN (E): out-of-bound array index [0, 255] not included in [0, 7]
+FourbyFour/main.c:26.11-30:[call#main@84:loop@91>=2:call#four_by_four@94:]: WARN (E): invalid dereference: dereferencing 1 byte(s) at offset(s) [0,255] may overflow the variable smain of byte-size 10
+FourbyFour/main.c:71.12-22:[call#main@84:loop@91>=2:call#four_by_four@94:]: WARN (E): out-of-bound array index [0, 9] not included in [0, 7]
+FourbyFour/main.c:71.34-44:[call#main@84:loop@91>=2:call#four_by_four@94:]: WARN (E): out-of-bound array index [0, 255] not included in [0, 7]
+FourbyFour/main.c:71.26-45:[call#main@84:loop@91>=2:call#four_by_four@94:]: WARN (E): invalid dereference: dereferencing 1 byte(s) at offset(s) [0,255] may overflow the variable smain of byte-size 10
+FourbyFour/main.c:72.12-22:[call#main@84:loop@91>=2:call#four_by_four@94:]: WARN (E): out-of-bound array index [0, 9] not included in [0, 7]
+FourbyFour/main.c:76.2-49:[call#main@84:loop@91>=2:call#four_by_four@94:]: WARN (E): assert failure __ASTREE_assert((!permutation == 1 || parity == 0))
+FourbyFour/main.c:86.2-7:[call#main@84:loop@91>=2:]: WARN (E): Loop never terminates for this context. 
+WARNING: FourbyFour/main.c:79.0-92.1:[:]: Analyzed entry-point main never returns. 
+Time spent in analysis of entry-point main: 0.070777 s (0 h 0 mn 0 s)
+
+1 procedure(s) executed
+/* Possibly shared variables */
+No shared variables found
+/* Reached functions */
+| ----------------------------------------------------------------------- |
+|                             |      Number of statements       |         |
+| Reached functions (3/3)     |   total | reached | not reached | percent |
+| ----------------------------------------------------------------------- |
+FourbyFour/main.c:79.0-92.1: | main                        |      10 |       9 |           1 |    90 % |
+FourbyFour/main.c:10.0-13.1: | initial_main                |       2 |       2 |           0 |   100 % |
+FourbyFour/main.c:15.0-77.1: | four_by_four                |      13 |      13 |           0 |   100 % |
+| ----------------------------------------------------------------------- |
+/* Result summary */
+Errors:                        0
+Alarms on code locations
+  Run-time errors:             8
+  Data flow anomalies:         1
+  Rule violations:             0
+Alarms on memory locations
+  Data races:                  0
+Reached code:                 96 % (24/25 statements)
+
+dataflow per process and per function
+main-process: initial_main: smain W
+main-process: four_by_four: smain RW
+
+/* Max heap size: 3.75 MB, 4 major collections */
+Duration:                   0.10 s (0 h 0 mn 0 s)
