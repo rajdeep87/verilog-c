@@ -1,4 +1,4 @@
-module ms177 (i2,i4,i6,i8,i10,i12,i14,i16,i18,i20,i22,i24,i26,p0);
+module m6s17 (i2,i4,i6,i8,i10,i12,i14,i16,i18,i20,i22,i24,i26,p0);
 
 input i2,i4,i6,i8,i10,i12,i14,i16,i18,i20,i22,i24,i26;
 
