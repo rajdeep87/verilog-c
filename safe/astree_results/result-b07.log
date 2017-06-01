@@ -1,0 +1,153 @@
+/* ABI */
+Using predefined ABI Analyzer default
+/*             _        _         __         _
+              //\      | |       /_/        /\\
+             //  \  ___| |_ _ __ ___  ___  /  \\
+            // /\ \/ __| __| '__/ _ \/ _ \/ /\ \\
+           // ____ \__ \ |_| | |  __/  __/ ____ \\
+    ______//_/    \_\__/\__|_|  \___|\__/_/    \_\\______
+
+Analyzer launched at 2017/05/30 22:32:12 (GMT+2)
+Developer mode
+Command line was "/home/mine/absinthe/svn/astree/analyzer.opt --preprocess cpp -I. -nostdinc b07/main.c --exec-fn main --partition-all --max-finite-int-set-size 8 "
+Launched by "mine" on "bihexachat", pid=14781
+Executable "analyzer.opt" created at 2017/05/21 23:39:50 (GMT+2)
+Integer size: unlimited
+End-user: Astree Team - Ecole Normale Superieure
+Version signature is "f06bae125824e4420694b8c2e11e07b9 -" */
+
+/* Filter patterns */
+/* External declarations */
+/* Parsing files */
+b07/main.c: parsing... (file 1 of 1)
+Parsed 134 physical lines of preprocessed code
+List of malloc contexts:
+0 typed malloc context(s)
+Computing static dependencies ...
+
+Computing dependency graph
+Computing cycles
+Dependency analysis done
+/* Variables in circular dependencies (1) */
+sb
+
+12 total declaration(s)
+/* Domains: Pointers, and Guard domain, and Packed (Octagons), and High_passband_domain(10), and Second_order_filter_domain(10), and Arithmetico-geometric series, and new clock, and Dependencies(static), and Equality relations, and Modulo relations, and Symbolic binary floats, and Packed (Boolean relations (based on Absolute value equality relations, and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals)), and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals, and Symbolic lvalues. */
+No ambiguity due to side effects in expressions
+/* Executing <main> */
+b07/main.c:131.4-135.5: up iteration #0
+[ Some constraints are not stable:
+   Guards
+   Main domain
+   Symbolic binary floats ]
+b07/main.c:131.4-135.5: up iteration #1
+[ Some constraints are not stable:
+   Main domain
+   Octagons
+   Symbolic binary floats ]
+b07/main.c:131.4-135.5: up iteration #2
+[ Some constraints are not stable:
+   Main domain
+   Symbolic binary floats ]
+b07/main.c:131.4-135.5: up iteration #3
+[ Some constraints are not stable:
+   Main domain
+   Octagons
+   Symbolic binary floats ]
+b07/main.c:131.4-135.5: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+b07/main.c:131.4-135.5: up iteration #5
+[ Some constraints are not stable:
+   Main domain
+   Octagons
+   Symbolic binary floats ]
+b07/main.c:131.4-135.5: up iteration #6
+[ Some constraints are not stable:
+   Main domain
+   Octagons ]
+b07/main.c:131.4-135.5: up iteration #7
+[ Some constraints are not stable:
+   Main domain
+   Octagons ]
+b07/main.c:131.4-135.5: up iteration #8
+[ Some constraints are not stable:
+   Main domain
+   Octagons ]
+b07/main.c:131.4-135.5: up iteration #9
+[ Some constraints are not stable:
+   Main domain ]
+b07/main.c:131.4-135.5: up iteration #10
+[ Some constraints are not stable:
+   Main domain ]
+b07/main.c:131.4-135.5: up iteration #11
+[ Some constraints are not stable:
+   Main domain
+   Octagons
+   Symbolic binary floats ]
+b07/main.c:131.4-135.5: up iteration #12
+[ Some constraints are not stable:
+   Main domain
+   Octagons ]
+b07/main.c:131.4-135.5: up iteration #13
+[ Some constraints are not stable:
+   Main domain
+   Octagons ]
+b07/main.c:131.4-135.5: up iteration #14
+[ Some constraints are not stable:
+   Main domain
+   Octagons ]
+b07/main.c:131.4-135.5: up iteration #15
+[ Some constraints are not stable:
+   Main domain ]
+b07/main.c:131.4-135.5: up iteration #16
+[ Some constraints are not stable:
+   Main domain ]
+b07/main.c:131.4-135.5: up iteration #17
+[ Some constraints are not stable:
+   Main domain
+   Octagons ]
+b07/main.c:131.4-135.5: up iteration #18
+[ Some constraints are not stable:
+   Octagons ]
+b07/main.c:131.4-135.5: up iteration #19
+b07/main.c:131.4-135.5: down iteration #0
+b07/main.c:84.26-45:[call#main@128:loop@136>=2:call#b07@138:]: WARN (E): implicit signed int->unsigned char conversion range [1, 256] not included in [0, 255]
+b07/main.c:103.20-41:[call#main@128:loop@136>=2:call#b07@138:if@106=true:]: WARN (E): implicit signed int->unsigned char conversion range [1, 256] not included in [0, 255]
+b07/main.c:104.18-37:[call#main@128:loop@136>=2:call#b07@138:if@106=true:]: WARN (E): implicit signed int->unsigned char conversion range [1, 256] not included in [0, 255]
+b07/main.c:109.22-50:[call#main@128:loop@136>=2:call#b07@138:if@106=false:]: WARN (E): implicit signed int->unsigned char conversion range [1, 256] not included in [0, 255]
+b07/main.c:134.6-41:[call#main@128:loop@136>=2:]: WARN (E): assert failure __ASTREE_assert(((sb.x & 255) != 148))
+b07/main.c:131.4-9:[call#main@128:loop@136>=2:]: WARN (E): Loop never terminates for this context. 
+WARNING: b07/main.c:123.0-137.1:[:]: Analyzed entry-point main never returns. 
+Time spent in analysis of entry-point main: 0.188754 s (0 h 0 mn 0 s)
+
+1 procedure(s) executed
+/* Possibly shared variables */
+No shared variables found
+/* Reached functions */
+| ----------------------------------------------------------------------- |
+|                             |      Number of statements       |         |
+| Reached functions (4/4)     |   total | reached | not reached | percent |
+| ----------------------------------------------------------------------- |
+b07/main.c:20.0-40.1: | mems                        |      33 |      33 |           0 |   100 % |
+b07/main.c:123.0-137.1: | main                        |       9 |       8 |           1 |    88 % |
+b07/main.c:42.0-51.1: | initial                     |       7 |       7 |           0 |   100 % |
+b07/main.c:53.0-121.1: | b07                         |      39 |      39 |           0 |   100 % |
+| ----------------------------------------------------------------------- |
+/* Result summary */
+Errors:                        0
+Alarms on code locations
+  Run-time errors:             5
+  Data flow anomalies:         1
+  Rule violations:             0
+Alarms on memory locations
+  Data races:                  0
+Reached code:                 98 % (87/88 statements)
+
+dataflow per process and per function
+main-process: initial: sb W
+main-process: b07: sb RW
+main-process: main: sb R
+
+/* Max heap size: 4.32 MB, 5 major collections */
+Duration:                   0.22 s (0 h 0 mn 0 s)

@@ -1,0 +1,120 @@
+/* ABI */
+Using predefined ABI Analyzer default
+/*             _        _         __         _
+              //\      | |       /_/        /\\
+             //  \  ___| |_ _ __ ___  ___  /  \\
+            // /\ \/ __| __| '__/ _ \/ _ \/ /\ \\
+           // ____ \__ \ |_| | |  __/  __/ ____ \\
+    ______//_/    \_\__/\__|_|  \___|\__/_/    \_\\______
+
+Analyzer launched at 2017/05/30 22:32:12 (GMT+2)
+Developer mode
+Command line was "/home/mine/absinthe/svn/astree/analyzer.opt --preprocess cpp -I. -nostdinc b08/main.c --exec-fn main --partition-all --max-finite-int-set-size 8 "
+Launched by "mine" on "bihexachat", pid=14785
+Executable "analyzer.opt" created at 2017/05/21 23:39:50 (GMT+2)
+Integer size: unlimited
+End-user: Astree Team - Ecole Normale Superieure
+Version signature is "f06bae125824e4420694b8c2e11e07b9 -" */
+
+/* Filter patterns */
+/* External declarations */
+/* Parsing files */
+b08/main.c: parsing... (file 1 of 1)
+Parsed 104 physical lines of preprocessed code
+List of malloc contexts:
+0 typed malloc context(s)
+Computing static dependencies ...
+
+Computing dependency graph
+Computing cycles
+Dependency analysis done
+/* Variables in circular dependencies (1) */
+sb
+
+9 total declaration(s)
+/* Domains: Pointers, and Guard domain, and Packed (Octagons), and High_passband_domain(10), and Second_order_filter_domain(10), and Arithmetico-geometric series, and new clock, and Dependencies(static), and Equality relations, and Modulo relations, and Symbolic binary floats, and Packed (Boolean relations (based on Absolute value equality relations, and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals)), and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals, and Symbolic lvalues. */
+No ambiguity due to side effects in expressions
+/* Executing <main> */
+b08/main.c:28.2-13:[call#main@98:loop@109=1/1:call#b08@112:call#ROMS@90:]: WARN (E): implicit unsigned int->unsigned char conversion range {522618} not included in [0, 255]
+b08/main.c:104.4-108.5: up iteration #0
+[ Some constraints are not stable:
+   Main domain
+   Octagons
+   Symbolic binary floats ]
+b08/main.c:104.4-108.5: up iteration #1
+[ Some constraints are not stable:
+   Main domain
+   Octagons
+   Symbolic binary floats ]
+b08/main.c:104.4-108.5: up iteration #2
+[ Some constraints are not stable:
+   Main domain
+   Symbolic binary floats ]
+b08/main.c:104.4-108.5: up iteration #3
+[ Some constraints are not stable:
+   Main domain ]
+b08/main.c:104.4-108.5: up iteration #4
+[ Some constraints are not stable:
+   Main domain ]
+b08/main.c:104.4-108.5: up iteration #5
+[ Some constraints are not stable:
+   Main domain ]
+b08/main.c:104.4-108.5: up iteration #6
+[ Some constraints are not stable:
+   Main domain ]
+b08/main.c:104.4-108.5: up iteration #7
+[ Some constraints are not stable:
+   Main domain ]
+b08/main.c:104.4-108.5: up iteration #8
+[ Some constraints are not stable:
+   Main domain ]
+b08/main.c:104.4-108.5: up iteration #9
+[ Some constraints are not stable:
+   Main domain
+   Octagons
+   Symbolic binary floats ]
+b08/main.c:104.4-108.5: up iteration #10
+[ Some constraints are not stable:
+   Octagons ]
+b08/main.c:104.4-108.5: up iteration #11
+b08/main.c:104.4-108.5: down iteration #0
+b08/main.c:66.26-31:[call#main@98:loop@109>=2:call#b08@112:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 0 in variable ROM_2
+b08/main.c:66.47-52:[call#main@98:loop@109>=2:call#b08@112:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 0 in variable ROM_1
+b08/main.c:66.67-72:[call#main@98:loop@109>=2:call#b08@112:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 0 in variable ROM_2
+b08/main.c:66.75-80:[call#main@98:loop@109>=2:call#b08@112:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 0 in variable ROM_1
+b08/main.c:68.45-51:[call#main@98:loop@109>=2:call#b08@112:]: WARN (E): uninitialized read: reading 1 byte(s) at offset(s) 0 in variable ROM_OR
+b08/main.c:28.2-13:[call#main@98:loop@109>=2:call#b08@112:if@79=true:call#ROMS@90:]: WARN (E): implicit unsigned int->unsigned char conversion range [196596, 1048430] not included in [0, 255]
+b08/main.c:28.2-13:[call#main@98:loop@109>=2:call#b08@112:if@79=false:call#ROMS@90:]: WARN (E): implicit unsigned int->unsigned char conversion range [196596, 1048430] not included in [0, 255]
+b08/main.c:104.4-9:[call#main@98:loop@109>=2:]: WARN (E): Loop never terminates for this context. 
+WARNING: b08/main.c:93.0-110.1:[:]: Analyzed entry-point main never returns. 
+Time spent in analysis of entry-point main: 0.128683 s (0 h 0 mn 0 s)
+
+1 procedure(s) executed
+/* Possibly shared variables */
+No shared variables found
+/* Reached functions */
+| ----------------------------------------------------------------------- |
+|                             |      Number of statements       |         |
+| Reached functions (4/4)     |   total | reached | not reached | percent |
+| ----------------------------------------------------------------------- |
+b08/main.c:93.0-110.1: | main                        |      11 |      10 |           1 |    90 % |
+b08/main.c:31.0-38.1: | initial                     |       5 |       5 |           0 |   100 % |
+b08/main.c:40.0-91.1: | b08                         |      30 |      30 |           0 |   100 % |
+b08/main.c:17.0-29.1: | ROMS                        |      17 |      17 |           0 |   100 % |
+| ----------------------------------------------------------------------- |
+/* Result summary */
+Errors:                        0
+Alarms on code locations
+  Run-time errors:             6
+  Data flow anomalies:         1
+  Rule violations:             0
+Alarms on memory locations
+  Data races:                  0
+Reached code:                 98 % (62/63 statements)
+
+dataflow per process and per function
+main-process: initial: sb W
+main-process: b08: sb RW
+
+/* Max heap size: 3.75 MB, 4 major collections */
+Duration:                   0.16 s (0 h 0 mn 0 s)

@@ -1,0 +1,87 @@
+/* ABI */
+Using predefined ABI Analyzer default
+/*             _        _         __         _
+              //\      | |       /_/        /\\
+             //  \  ___| |_ _ __ ___  ___  /  \\
+            // /\ \/ __| __| '__/ _ \/ _ \/ /\ \\
+           // ____ \__ \ |_| | |  __/  __/ ____ \\
+    ______//_/    \_\__/\__|_|  \___|\__/_/    \_\\______
+
+Analyzer launched at 2017/05/30 22:32:14 (GMT+2)
+Developer mode
+Command line was "/home/mine/absinthe/svn/astree/analyzer.opt --preprocess cpp -I. -nostdinc Vlunc/main.c --exec-fn main --partition-all --max-finite-int-set-size 8 "
+Launched by "mine" on "bihexachat", pid=14829
+Executable "analyzer.opt" created at 2017/05/21 23:39:50 (GMT+2)
+Integer size: unlimited
+End-user: Astree Team - Ecole Normale Superieure
+Version signature is "f06bae125824e4420694b8c2e11e07b9 -" */
+
+/* Filter patterns */
+/* External declarations */
+/* Parsing files */
+Vlunc/main.c: parsing... (file 1 of 1)
+Parsed 173 physical lines of preprocessed code
+List of malloc contexts:
+0 typed malloc context(s)
+Computing static dependencies ...
+
+Computing dependency graph
+Computing cycles
+Dependency analysis done
+/* Variables in circular dependencies (0) */
+
+12 total declaration(s)
+/* Domains: Pointers, and Guard domain, and Packed (Octagons), and High_passband_domain(10), and Second_order_filter_domain(10), and Arithmetico-geometric series, and new clock, and Dependencies(static), and Equality relations, and Modulo relations, and Symbolic binary floats, and Packed (Boolean relations (based on Absolute value equality relations, and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals)), and Symbolic constant propagation (max_depth=20), and Linearization, and Integer intervals, and Integer modular intervals, and Integer congruences, and Integer finite sets, and Integer bitfields, and Integer nullness, and Float distance to zero, and Float intervals, and Symbolic lvalues. */
+No ambiguity due to side effects in expressions
+/* Executing <main> */
+Vlunc/main.c:189.2-193.3: up iteration #0
+[ Some constraints are not stable:
+   Boolean-trees
+   Main domain
+   Octagons
+   Symbolic binary floats ]
+Vlunc/main.c:189.2-193.3: up iteration #1
+Vlunc/main.c:189.2-193.3: down iteration #0
+Vlunc/main.c:89.5-24:[call#main@181:loop@194>=2:call#vlunc@197:call#transform@161:call#toLower@130:]: WARN (E): implicit signed int->unsigned char conversion range [32, 287] not included in [0, 255]
+Vlunc/main.c:111.5-27:[call#main@181:loop@194>=2:call#vlunc@197:call#transform@161:call#changeCase@133:]: WARN (E): implicit signed int->unsigned char conversion range [32, 287] not included in [0, 255]
+Vlunc/main.c:189.2-7:[call#main@181:loop@194>=2:]: WARN (E): Loop never terminates for this context. 
+WARNING: Vlunc/main.c:176.0-195.1:[:]: Analyzed entry-point main never returns. 
+Time spent in analysis of entry-point main: 0.103230 s (0 h 0 mn 0 s)
+
+1 procedure(s) executed
+/* Possibly shared variables */
+No shared variables found
+/* Reached functions */
+| ------------------------------------------------------------------------ |
+|                              |      Number of statements       |         |
+| Reached functions (10/10)    |   total | reached | not reached | percent |
+| ------------------------------------------------------------------------ |
+Vlunc/main.c:142.0-174.1: | vlunc                        |      18 |      18 |           0 |   100 % |
+Vlunc/main.c:117.0-129.1: | transform                    |       1 |       1 |           0 |   100 % |
+Vlunc/main.c:95.0-104.1: | toUpper                      |       5 |       4 |           1 |    80 % |
+Vlunc/main.c:84.0-93.1: | toLower                      |       5 |       4 |           1 |    80 % |
+Vlunc/main.c:176.0-195.1: | main                         |      12 |      11 |           1 |    91 % |
+Vlunc/main.c:76.0-82.1: | isUpper                      |       3 |       3 |           0 |   100 % |
+Vlunc/main.c:12.0-19.1: | initial_control              |       5 |       5 |           0 |   100 % |
+Vlunc/main.c:137.0-140.1: | initial                      |       2 |       2 |           0 |   100 % |
+Vlunc/main.c:21.0-73.1: | control                      |      41 |      41 |           0 |   100 % |
+Vlunc/main.c:106.0-115.1: | changeCase                   |       5 |       4 |           1 |    80 % |
+| ------------------------------------------------------------------------ |
+/* Result summary */
+Errors:                        0
+Alarms on code locations
+  Run-time errors:             2
+  Data flow anomalies:         1
+  Rule violations:             0
+Alarms on memory locations
+  Data races:                  0
+Reached code:                 95 % (93/97 statements)
+
+dataflow per process and per function
+main-process: initial_control: scontrol W
+main-process: control: scontrol RW
+main-process: initial: smain W
+main-process: vlunc: smain RW
+
+/* Max heap size: 3.75 MB, 4 major collections */
+Duration:                   0.13 s (0 h 0 mn 0 s)
