@@ -1,0 +1,14 @@
+DAIO.log:DAIO/main.c:335.3-49:[call#main@287:loop@328=1/1:]: Definite assertion failure in this context. Analysis stopped for this context. 
+DAIO  FAILURE  0.40
+Dekker FALSE_ALARM 0.40
+FIFO   FALSE_ALARM 0.82
+Ibuf   FALSE_ALARM  0.47       
+Ibuf   FALSE_ALARM  0.47 s 
+NullModem  FAILURE 0.39 s 
+ReqAck  FAILURE 0.30
+Rotate  FALSE_ALARM 0.41
+Unidec  FALSE_ALARM 0.47
+Vlunc   FALSE_ALARM 0.46
+b01     FAILURE 0.55
+b02     FAILURE 0.53
+non-pipelined-microprocessor  FALSE_ALARM 0.66
