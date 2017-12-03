@@ -8,6 +8,7 @@
 #include <assert.h>
 #define TRUE 1
 #define FALSE 0
+_Bool nondet_bool();
 
 #define CRC_INITIAL_VALUE 0xFFFFFFFF;
 #define CRC_REMAINDER 0xC704DD7B;
@@ -151,6 +152,9 @@ int main()
 
   initial();
   //while(1) {
+    load = nondet_bool();
+    compute = nondet_bool();
+    data_in = nondet_bool();
     crc_main(clk,clken,reset,load,compute,data_in,data_out,&crc_ok,&crc);
 
     // property

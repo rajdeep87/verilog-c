@@ -8,5 +8,5 @@ fi
 for dir in `ls $WORKSPACE`
 do
   #echo "checking " $dir
-  python statistics.py $WORKSPACE/$dir/ 
+  python time.py $WORKSPACE/$dir/ 
 done  

@@ -85,13 +85,15 @@ void main()
   initial();
   assert(smain.stato==A);
 
-  while(1) {
+  //while(1) {
+    LINEA=nondet_bool();
     b02(clock,LINEA,&U);
     if(smain.stato==D) {
       b02(clock,LINEA,&U);
       b02(clock,LINEA,&U);
       assert(smain.stato==B);
     }
+    // PASS
     /*if(smain.U==1) {
       b02(clock,LINEA,&U);
       assert(smain.U==0);
@@ -99,5 +101,5 @@ void main()
     if(smain.U==1) {
       assert(smain.stato==B);
     }*/
-  }
+  //} 
 }

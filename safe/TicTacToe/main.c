@@ -51,16 +51,14 @@ void main() {
     imove = nondet_uchar();
     tictactoe(clock, imove, &winX, &winO, &finished);
   
-   /*
+   
    assert((((smain.move >> 3)&1)==0) || ((smain.move&3)==0));
-   assert(!(winX==1 && winO==1));
+   /*assert(!(winX==1 && winO==1));
    assert(!(smain.b[0]==X && smain.b[1]==X && smain.b[2]==X) || (winX==1)); // top row
    assert(!(smain.b[0]==O && smain.b[1]==O && smain.b[2]==O) || (winO==1));
    assert(!(smain.b[3]==X && smain.b[4]==X && smain.b[5]==X) || (winX==1)); // middle row
    assert(!(smain.b[3]==O && smain.b[4]==O && smain.b[5]==O) || (winO==1)); 
    assert(!(smain.b[6]==X && smain.b[7]==X && smain.b[8]==X) || (winX==1)); // bottom row
-   */
-   
-   assert(!(smain.b[6]==O && smain.b[7]==O && smain.b[8]==O) || (winO==1)); 
+   assert(!(smain.b[6]==O && smain.b[7]==O && smain.b[8]==O) || (winO==1));*/ 
   //}
 }

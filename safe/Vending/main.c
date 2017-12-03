@@ -222,7 +222,8 @@ void vending(_Bool clock, unsigned char deposit, unsigned char *change, _Bool *b
 struct state_elements_monitor{
   unsigned char balance;
 };
-struct state_elements_monitor smonitor; 
+struct state_elements_monitor smonitor;  
+
 
 void initial_monitor(_Bool clock, unsigned char deposit, _Bool beverage, unsigned char change, unsigned char *balance)
 {
@@ -244,7 +245,10 @@ void monitor(_Bool clock, unsigned char deposit, _Bool beverage, unsigned char c
   *balance = (smonitor.balance + valD) - (valC + valB);
 }
 
-unsigned char deposit;
+struct state_elements_main{
+  unsigned char deposit;
+};
+struct state_elements_main smain;
 
 void main()
 {
@@ -256,16 +260,16 @@ void main()
   _Bool beverage;
   _Bool enable;
   
-  initial_vending(clock, deposit, &change, &beverage, &enable);
-  initial_monitor(clock, deposit, beverage, change, &balance);
+  initial_vending(clock, smain.deposit, &change, &beverage, &enable);
+  initial_monitor(clock, smain.deposit, beverage, change, &balance);
 
-  deposit = nondet_uchar() & 3;
-  vending(clock, deposit, &change, &beverage, &enable);
-  monitor(clock, deposit, beverage, change, &balance);
+  smain.deposit = nondet_uchar() & 3;
+  vending(clock, smain.deposit, &change, &beverage, &enable);
+  monitor(clock, smain.deposit, beverage, change, &balance);
 
   if(enable)
-    deposit = nd & 3;
+    smain.deposit = nd & 3;
   else
-    deposit = NONE;
+    smain.deposit = NONE;
 }
 

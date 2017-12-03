@@ -227,7 +227,7 @@ int main() {
    // *********************** Property 2 *******************************
    //                      G lclPassctr[7:4]={0,15};
    // ******************************************************************
-   assert( (((smain.lclPassctr >> 4) & 0xf) == 0) || (((smain.lclPassctr >> 4) & 0xf) == 15) );
+   // assert( (((smain.lclPassctr >> 4) & 0xf) == 0) || (((smain.lclPassctr >> 4) & 0xf) == 15) ); // PASS
  //} // end of while(1)
  return 1;
 } // end of main

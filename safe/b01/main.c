@@ -2,6 +2,7 @@
 #include <assert.h>
 #define TRUE 1
 #define FALSE 0
+_Bool nondet_bool();
 
 int a=0;
 int b=1;
@@ -114,14 +115,16 @@ void main()
   _Bool OUTP; _Bool OVERFLW; 
   _Bool  clock;
  initial();
- while(1) {
+ //while(1) {
+   LINE1=nondet_bool();
+   LINE2=nondet_bool();
    b01(LINE1,LINE2,&OUTP,&OVERFLW,clock);
    if(smain.OVERFLW==1) {
      b01(LINE1,LINE2,&OUTP,&OVERFLW,clock);
      b01(LINE1,LINE2,&OUTP,&OVERFLW,clock);
      assert(smain.OVERFLW==0);
    }
- }
+ //}
 }
 
 

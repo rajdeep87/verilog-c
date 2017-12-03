@@ -2,6 +2,7 @@
 #include <assert.h>
 #define TRUE 1
 #define FALSE 0
+unsigned char nondet_char();
 
 struct state_elements_control {
   unsigned char prev;
@@ -179,7 +180,11 @@ void main()
   unsigned char dataOut;
   initial();
   initial_control();
-  while(1) 
+  //while(1) {
+    dataIn = nondet_char();
+    vlunc(clock,reset,dataIn,&dataOut);
+  //}
+    dataIn = nondet_char();
     vlunc(clock,reset,dataIn,&dataOut);
 }
 

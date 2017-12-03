@@ -2,6 +2,7 @@
 #include <assert.h>
 #define TRUE 1
 #define FALSE 0
+_Bool nondet_bool();
 
 int U1=0;
 int U2=1;
@@ -130,10 +131,15 @@ void main()
   _Bool 	 REQUEST1, REQUEST2, REQUEST3, REQUEST4;
   unsigned char GRANT_O;
   initial();
-  while(1) {
+  //while(1) {
+
+    REQUEST1 = nondet_bool();
+    REQUEST2 = nondet_bool();
+    REQUEST3 = nondet_bool();
+    REQUEST4 = nondet_bool();
     b03(clock,REQUEST1, REQUEST2, REQUEST3, REQUEST4, &GRANT_O);
     assert(GRANT_O==0 || GRANT_O==8 || GRANT_O==4 || GRANT_O==2 || GRANT_O==1);
-  }
+  //}
 }
 
 

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+_Bool nondet_bool();
 
 struct state_elements_main{
   unsigned int inr;
@@ -46,7 +47,7 @@ void spinner(_Bool clock, _Bool spin, unsigned char amount, unsigned int din, un
   *dout = smain.dout;
     
   // PASS
-  assert(!((smain.inr&0xFFFFFFFF!=0) && (smain.dout&0xFFFFFFFF!=0)) || (smain.spl==0 || smain.inr&0xFFFFFFFF!=0));
+  //assert(!((smain.inr&0xFFFFFFFF!=0) && (smain.dout&0xFFFFFFFF!=0)) || (smain.spl==0 || smain.inr&0xFFFFFFFF!=0));
   // PASS
   //assert(!(inr[31:0]==0 && dout[31:0]==0) ||  (spl==0 || inr[31:0]==0));
   assert(!((smain.inr&0xFFFFFFFF==0) && (smain.dout&0xFFFFFFFF==0)) || (smain.spl==0 || smain.inr&0xFFFFFFFF==0));
@@ -58,7 +59,14 @@ void main() {
   unsigned char amount;
   unsigned int din;
   unsigned int dout;
-  while(1) {
+  //while(1) {
+    spin = nondet_bool(); 
+    amount = nondet_bool();
+    din = nondet_bool();
     spinner(clock, spin, amount, din, &dout);
-  }
+  //}
+    spin = nondet_bool(); 
+    amount = nondet_bool();
+    din = nondet_bool();
+    spinner(clock, spin, amount, din, &dout);
 }

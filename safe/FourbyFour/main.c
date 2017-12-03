@@ -94,5 +94,6 @@ void main() {
   initial_main();
   //while(1) {
     four_by_four(clock, from, to);
+    four_by_four(clock, from, to);
   //}
 }

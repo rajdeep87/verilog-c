@@ -13,7 +13,7 @@ int S_INCREMENTA = 6;
 
 struct state_elements_b07 {
     unsigned char 	 PUNTI_RETTA;
-    _Bool    stato;
+    unsigned char    stato;
     unsigned char 	 cont, x;
     unsigned char 	 y, t;
     unsigned char 	 mar;
@@ -129,9 +129,9 @@ void main()
     _Bool 	 START;
     _Bool 	 clock;
     initial();
-    while(1) { 
+    //while(1) { 
       START=nondet_bool();
       b07(&PUNTI_RETTA, START, clock);
       assert ((sb.x&0xFF)!=148);
-    }
+    //}
 }

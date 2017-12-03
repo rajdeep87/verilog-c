@@ -2,6 +2,7 @@
 #include <assert.h>
 #define TRUE 1
 #define FALSE 0
+unsigned short int nondet_sint();
 
 // Control states.
 int	 IF = 0;		// instruction fetch
@@ -187,10 +188,12 @@ int main()
   _Bool wr;
 
   initial_alu16();
-  //while(1) 
-  alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
-  alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
-  alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
-  alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
-  alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
+  //while(1) {
+   instruction = nondet_sint(); 
+   datain = nondet_sint(); 
+   alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
+  //}
+   instruction = nondet_sint(); 
+   datain = nondet_sint(); 
+   alu16(clk,&PC,instruction,&ALUOutput,datain,&dataout,&wr);
 }

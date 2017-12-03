@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <assert.h>
+_Bool nondet_bool();
 
 struct state_elements_b06 {
     unsigned char CC_MUX, USCITE;
     _Bool 	 ENABLE_COUNT, ACKOUT;
-    _Bool    state;
+    unsigned char    state;
 };
 struct state_elements_b06 sb;
 
@@ -150,9 +151,11 @@ void main()
   _Bool  ACKOUT;
   _Bool  CONT_EQL;
   initial();
-  while (1) {
+  //while (1) {
+    EQL = nondet_bool();
+    CONT_EQL = nondet_bool();
     b06(&CC_MUX, EQL, &USCITE, clock, &ENABLE_COUNT, &ACKOUT, CONT_EQL);
     assert (ENABLE_COUNT==ACKOUT);
-    assert ((USCITE&0x3)!=2);
-  }
+    //assert ((USCITE&0x3)!=2); // PASS
+  //}
 }

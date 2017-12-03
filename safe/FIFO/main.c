@@ -115,8 +115,8 @@ void design(_Bool clock, unsigned char dataIn, _Bool push, _Bool pop, _Bool *equ
   srFIFO(clock, dataIn, push, pop, &srDataOut, &srFull, &srEmpty);
   rbFIFO(clock, dataIn, push, pop, &rbDataOut, &rbFull, &rbEmpty);
   *equal = ((srFull == rbFull) && (ssrFIFO.empty == srbFIFO.empty) && (ssrFIFO.empty || (srDataOut == rbDataOut)));
-  //assert(srFull == rbFull);
-  //assert(srEmpty == rbEmpty);
+  //assert(srFull == rbFull);  // PASS
+  //assert(srEmpty == rbEmpty); // PASS
   assert(*equal == 1);
 }
 
@@ -137,4 +137,8 @@ void main() {
     dataIn = nondet_uchar();
     design(clock, dataIn, push, pop, &equal);
   //}
+    push = nondet_bool();
+    pop = nondet_bool();
+    dataIn = nondet_uchar();
+    design(clock, dataIn, push, pop, &equal);
 }
