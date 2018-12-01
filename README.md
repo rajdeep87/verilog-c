@@ -1,5 +1,5 @@
 # verilog-c
-ANSI-C benchmarks generated from Verilog RTL circuits with safety assertions. Used for Formal Property Verification. If you are using the benchmarks, please condiser the following paper for the translation details from Verilog RTL to C programs.
+ANSI-C benchmarks generated from Verilog RTL circuits with safety assertions. Used for Formal Property Verification. If you are using the benchmarks, please refer to the following papers for the translation details from Verilog RTL to C programs. 
 
 ```
 @inproceedings{mkm2015,
